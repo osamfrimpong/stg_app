@@ -1,0 +1,1571 @@
+[
+  {
+    "chapter": 1,
+    "title": "Disorders of the Gastrointestinal Tract",
+    "subitems": [
+      {
+        "id": 1,
+        "title": "Diarrhoea",
+        "address": "diarrhoea.html"
+      },
+      {
+        "id": 2,
+        "title": "Rotavirus Disease and Diarrhoea",
+        "address": "rotavirus.html"
+      },
+      {
+        "id": 3,
+        "title": "Constipation",
+        "address": "constipation.html"
+      },
+      {
+        "id": 4,
+        "title": "Peptic Ulcer Disease",
+        "address": "pud.html"
+      },
+      {
+        "id": 5,
+        "title": "Gastro-oesophageal Reflux Disease",
+        "address": "gurd.html"
+      },
+      {
+        "id": 6,
+        "title": "Pain Originating from the 0esophagus",
+        "address": "pofto.html"
+      },
+      {
+        "id": 7,
+        "title": "Haemorrhoids",
+        "address": "haemorrhoids.html"
+      }
+    ]
+  },
+  {
+    "chapter": 2,
+    "title": "Disorders of the Liver",
+    "subitems": [
+      {
+        "id": 8,
+        "title": "Amoebic Liver Abscess",
+        "address": "amoebic_liver_abscess.html"
+      },
+      {
+        "id": 9,
+        "title": "Jaundice",
+        "address": "jaundice.html"
+      },
+      {
+        "id": 10,
+        "title": "Acute Hepatitis",
+        "address": "acute_hepatitis.html"
+      },
+      {
+        "id": 11,
+        "title": "Chronic Hepatitis",
+        "address": "chronic_hepatitis.html"
+      },
+      {
+        "id": 12,
+        "title": "Hepatic Encephalopathy",
+        "address": "hepatic_encephalopathy.html"
+      },
+      {
+        "id": 13,
+        "title": "Ascites",
+        "address": "ascites.html"
+      },
+      {
+        "id": 14,
+        "title": "Vomiting",
+        "address": "vomiting.html"
+      },
+      {
+        "id": 15,
+        "title": "Hepatocellular Carcinoma",
+        "address": "hepatocellular_carcinoma.html"
+      },
+      {
+        "id": 16,
+        "title": "Drugs and the Liver",
+        "address": "drugs_and_the_liver.html"
+      }
+    ]
+  },
+  {
+    "chapter": 3,
+    "title": "Nutritional Disorders",
+    "subitems": [
+      {
+        "id": 17,
+        "title": "Malnutrition",
+        "address": "malnutrition.html"
+      }
+    ]
+  },
+  {
+    "chapter": 4,
+    "title": "Hematological Disorders",
+    "subitems": [
+      {
+        "id": 18,
+        "title": "Anaemia",
+        "address": "anaemia.html"
+      },
+      {
+        "id": 19,
+        "title": "Bleeding Disorders",
+        "address": "bleeding_disorders.html"
+      },
+      {
+        "id": 20,
+        "title": "Sickle Cell Disease",
+        "address": "sickle_cell_disease.html"
+      },
+      {
+        "id": 21,
+        "title": "Plasma Cell Myeloma",
+        "address": "plasma_cell_myeloma.html"
+      },
+      {
+        "id": 22,
+        "title": "Leukaemia",
+        "address": "leukaemia.html"
+      },
+      {
+        "id": 23,
+        "title": "Malignant Lymphoma",
+        "address": "malignant_lymphoma.html"
+      }
+    ]
+  },
+  {
+    "chapter": 5,
+    "title": "Immunisable Diseases",
+    "subitems": [
+      {
+        "id": 24,
+        "title": "Immunisation",
+        "address": "immunisation.html"
+      },
+      {
+        "id": 25,
+        "title": "Measles",
+        "address": "measles.html"
+      },
+      {
+        "id": 26,
+        "title": "Pertussis",
+        "address": "pertussis.html"
+      },
+      {
+        "id": 27,
+        "title": "Tetanus",
+        "address": "tetanus.html"
+      },
+      {
+        "id": 28,
+        "title": "Poliomyelitis",
+        "address": "poliomyelitis.html"
+      },
+      {
+        "id": 29,
+        "title": "Diptheria",
+        "address": "diptheria.html"
+      },
+      {
+        "id": 30,
+        "title": "Yellow Fever",
+        "address": "yellow_fever.html"
+      },
+      {
+        "id": 31,
+        "title": "Hemophilus Influenza type B Disease",
+        "address": "hemophillus_influenza_typeb.html"
+      },
+      {
+        "id": 32,
+        "title": "Pnemococcal Disease",
+        "address": "pneumococcal_disease.html"
+      },
+      {
+        "id": 33,
+        "title": "Rotavirus Disease",
+        "address": "rotavirus_disease.html"
+      }
+    ]
+  },
+  {
+    "chapter": 6,
+    "title": "Problems of the Newborn(Neonate)",
+    "subitems": [
+      {
+        "id": 34,
+        "title": "Sick Newborn",
+        "address": "sick_newborn.html"
+      },
+      {
+        "id": 35,
+        "title": "Neonatal Hypoglycemia",
+        "address": "neonatal_hypoglycemia.html"
+      },
+      {
+        "id": 36,
+        "title": "Neonatal Jaundice",
+        "address": "neonatal_jaundice.html"
+      },
+      {
+        "id": 37,
+        "title": "Birth Injuries",
+        "address": "birth_injuries.html"
+      },
+      {
+        "id": 38,
+        "title": "Neonatal Conjunctivitis",
+        "address": "neonatal_conjunctivitis.html"
+      },
+      {
+        "id": 39,
+        "title": "Retinoblastoma",
+        "address": "retinoblastoma.html"
+      },
+      {
+        "id": 40,
+        "title": "Wilms Tumour",
+        "address": "wilms_tumour.html"
+      }
+    ]
+  },
+  {
+    "chapter": 7,
+    "title": "Disorders of the Cardiovascular System",
+    "subitems": [
+      {
+        "id": 41,
+        "title": "Chest Pain",
+        "address": "chest_pain.html"
+      },
+      {
+        "id": 42,
+        "title": "Ischemic Heart Disease",
+        "address": "ischemic_heart_disease.html"
+      },
+      {
+        "id": 43,
+        "title": "Dyspnoea",
+        "address": "dyspnoea.html"
+      },
+      {
+        "id": 44,
+        "title": "Deep Vein Thrombosis",
+        "address": "dvt.html"
+      },
+      {
+        "id": 45,
+        "title": "Pulmonary Embolism",
+        "address": "pulmonary_embolism.html"
+      },
+      {
+        "id": 46,
+        "title": "Stroke",
+        "address": "stroke.html"
+      },
+      {
+        "id": 47,
+        "title": "Heart Failure",
+        "address": "heart_failure.html"
+      },
+      {
+        "id": 48,
+        "title": "Congenital Heart Disease",
+        "address": "congenital_heart_disease.html"
+      },
+      {
+        "id": 49,
+        "title": "Hypercyanotic Attack",
+        "address": "hypercyanotic_attack.html"
+      },
+      {
+        "id": 50,
+        "title": "Pericarditis",
+        "address": "pericarditis.html"
+      },
+      {
+        "id": 51,
+        "title": "Hypertension",
+        "address": "hypertension.html"
+      },
+      {
+        "id": 52,
+        "title": "Hypertension in Children and Adolescents",
+        "address": "hypertension_in_children_and_adolescents.html"
+      },
+      {
+        "id": 53,
+        "title": "Hypertension in Pregnancy",
+        "address": "hypertension_in_pregnancy.html"
+      },
+      {
+        "id": 54,
+        "title": "Hypertensive Emergencies",
+        "address": "hypertensive_emergencies.html"
+      },
+      {
+        "id": 55,
+        "title": "Arrhythmias",
+        "address": "arrhythmias.html"
+      },
+      {
+        "id": 56,
+        "title": "Acute Rheumatic Fever",
+        "address": "acute_rheumatic_fever.html"
+      },
+      {
+        "id": 57,
+        "title": "Dizziness and Blackouts",
+        "address": "dizziness_and_blackouts.html"
+      }
+    ]
+  },
+  {
+    "chapter": 8,
+    "title": "Disorders of the Respiratory System",
+    "subitems": [
+      {
+        "id": 58,
+        "title": "Common Cold",
+        "address": "common_cold.html"
+      },
+      {
+        "id": 59,
+        "title": "Pneumonia",
+        "address": "pneumonia.html"
+      },
+      {
+        "id": 60,
+        "title": "Bronchial Asthma",
+        "address": "bronchial_asthma.html"
+      },
+      {
+        "id": 61,
+        "title": "Acute Bronchitis",
+        "address": "acute_bronchitis.html"
+      },
+      {
+        "id": 62,
+        "title": "Chronic Bronchitis",
+        "address": "chronic_bronchitis.html"
+      },
+      {
+        "id": 63,
+        "title": "Bronchiectasis",
+        "address": "bronchiectasis.html"
+      },
+      {
+        "id": 64,
+        "title": "Lung Abscess",
+        "address": "lung_abscess.html"
+      }
+    ]
+  },
+  {
+    "chapter": 9,
+    "title": "Disorders of the Central Nervous System",
+    "subitems": [
+      {
+        "id": 65,
+        "title": "Headache",
+        "address": "headache.html"
+      },
+      {
+        "id": 66,
+        "title": "Seizures",
+        "address": "seizures.html"
+      },
+      {
+        "id": 67,
+        "title": "Epilepsy",
+        "address": "epilepsy.html"
+      },
+      {
+        "id": 68,
+        "title": "The Unconscious Patient",
+        "address": "the_unconscious_patient.html"
+      }
+    ]
+  },
+  {
+    "chapter": 10,
+    "title": "Psychiatric Disorders",
+    "subitems": [
+      {
+        "id": 69,
+        "title": "Attention Deficit Hyperactivity Disorder(ADHD)",
+        "address": "adhd.html"
+      },
+      {
+        "id": 70,
+        "title": "The Acutely Disturbed Patient",
+        "address": "the_acutely_disturbed_patient.html"
+      },
+      {
+        "id": 71,
+        "title": "Psychogenic Seizures",
+        "address": "psychogenic_seizures.html"
+      },
+      {
+        "id": 72,
+        "title": "Insomnia",
+        "address": "insomnia.html"
+      },
+      {
+        "id": 73,
+        "title": "Depression",
+        "address": "depression.html"
+      },
+      {
+        "id": 74,
+        "title": "Schizophrenia",
+        "address": "schizophrenia.html"
+      },
+      {
+        "id": 75,
+        "title": "Bipolar Disorder",
+        "address": "bipolar_disorder.html"
+      },
+      {
+        "id": 76,
+        "title": "Alcohol Withdrawal Syndromes",
+        "address": "alcohol_withdrawal_syndromes.html"
+      },
+      {
+        "id": 77,
+        "title": "Alcoholic Delirium Tremens",
+        "address": "alcoholic_delirium_tremens.html"
+      },
+      {
+        "id": 78,
+        "title": "Anxiety Disorders",
+        "address": "anxiety_disorders.html"
+      },
+      {
+        "id": 79,
+        "title": "Substance Use Disorders",
+        "address": "substance_use_disorders.html"
+      },
+      {
+        "id": 80,
+        "title": "Autistic Spectrum Disorder",
+        "address": "autistic_spectrum_disorder.html"
+      }
+    ]
+  },
+  {
+    "chapter": 11,
+    "title": "Disorders of the Skin",
+    "subitems": [
+      {
+        "id": 81,
+        "title": "Boils",
+        "address": "boils.html"
+      },
+      {
+        "id": 82,
+        "title": "Impertigo",
+        "address": "impertigo.html"
+      },
+      {
+        "id": 83,
+        "title": "Cellulitis and Erysipelas",
+        "address": "jaundice.html"
+      },
+      {
+        "id": 84,
+        "title": "Buruli Ulcer",
+        "address": "buruli_ulcer.html"
+      },
+      {
+        "id": 85,
+        "title": "Yaws",
+        "address": "yaws.html"
+      },
+      {
+        "id": 86,
+        "title": "Superficial Fungal Skin Infections",
+        "address": "superficial_fungal_skin_infections.html"
+      },
+      {
+        "id": 87,
+        "title": "Pityriasis Versicolor",
+        "address": "pityriasis_versicolor.html"
+      },
+      {
+        "id": 88,
+        "title": "Herpes Simplex Infections",
+        "address": "herpes_simplex_infections.html"
+      },
+      {
+        "id": 89,
+        "title": "Herpes Zoster Infections",
+        "address": "herpes_zoster_infections.html"
+      },
+      {
+        "id": 90,
+        "title": "Chicken Pox",
+        "address": "chicken_pox.html"
+      },
+      {
+        "id": 91,
+        "title": "Large Chronic Ulcers",
+        "address": "large_chronic_ulcers.html"
+      },
+      {
+        "id": 92,
+        "title": "Pruritus",
+        "address": "pruritus.html"
+      },
+      {
+        "id": 93,
+        "title": "Urticaria",
+        "address": "urticaria.html"
+      },
+      {
+        "id": 94,
+        "title": "Reactive Erythema and Bollus reaction",
+        "address": "reactive_erytrhema_and_bollus_reaction.html"
+      },
+      {
+        "id": 95,
+        "title": "Acne Vulgaris",
+        "address": "acne_vulgaris.html"
+      },
+      {
+        "id": 96,
+        "title": "Eczema",
+        "address": "eczema.html"
+      },
+      {
+        "id": 97,
+        "title": "Intertrigo",
+        "address": "Intertrigo.html"
+      }
+    ]
+  },
+  {
+    "chapter": 12,
+    "title": "Endocrine and Metabolic Disorders",
+    "subitems": [
+      {
+        "id": 98,
+        "title": "Diabetes Mellitus",
+        "address": "diabetes_mellitus.html"
+      },
+      {
+        "id": 99,
+        "title": "Diabetic Ketoacidosis",
+        "address": "diabetic_ketoacidosis.html"
+      },
+      {
+        "id": 100,
+        "title": "Diabetes in Pregnancy",
+        "address": "diabetes_in_pregnancy.html"
+      },
+      {
+        "id": 101,
+        "title": "Treatment Induced Hypoglycemia",
+        "address": "treatment_induced_hypoglycemia.html"
+      },
+      {
+        "id": 102,
+        "title": "dyslipidaemia",
+        "address": "dyslipidaemia.html"
+      },
+      {
+        "id": 103,
+        "title": "Goitre",
+        "address": "goitre.html"
+      },
+      {
+        "id": 104,
+        "title": "Hypothyroidism",
+        "address": "hypothyroidism.html"
+      },
+      {
+        "id": 105,
+        "title": "Hyperthyroidism",
+        "address": "hyperthyroidism.html"
+      },
+      {
+        "id": 106,
+        "title": "Adrenal Insufficiency",
+        "address": "adrenal_insufficiency.html"
+      },
+      {
+        "id": 107,
+        "title": "Cushing's Syndrome",
+        "address": "cushing_syndrome.html"
+      },
+      {
+        "id": 108,
+        "title": "Overweight and Obesity",
+        "address": "overweight_and_obesity.html"
+      }
+    ]
+  },
+  {
+    "chapter": 13,
+    "title": "Obstetric Care and Obstetric Disorders",
+    "subitems": [
+      {
+        "id": 109,
+        "title": "Antenatal Care",
+        "address": "antenatal_care.html"
+      },
+      {
+        "id": 110,
+        "title": "Hyperemesis Gravidarum",
+        "address": "hyperemesis_gravidarum.html"
+      },
+      {
+        "id": 111,
+        "title": "Hypertension in Pregnancy",
+        "address": "hypertension_in_pregnancy.html"
+      },
+      {
+        "id": 112,
+        "title": "Pre-eclampsia",
+        "address": "pre_eclampsia.html"
+      },
+      {
+        "id": 113,
+        "title": "Severe Pre-eclampsia and Imminent Eclampsia",
+        "address": "severe_preeclampsia_and_imminent_eclampsia.html"
+      },
+      {
+        "id": 114,
+        "title": "Eclampsia",
+        "address": "eclampsia.html"
+      },
+      {
+        "id": 115,
+        "title": "Malaria in Pregnancy",
+        "address": "malaria_in_pregnancy.html"
+      },
+      {
+        "id": 116,
+        "title": "Anaemia in Pregnancy",
+        "address": "anaemia_in_pregancy.html"
+      },
+      {
+        "id": 117,
+        "title": "Sickle Cell Disease in Pregnancy",
+        "address": "sickle_cell_disease_in_pregnancy.html"
+      },
+      {
+        "id": 118,
+        "title": "Diabetes Mellitus in Pregnancy",
+        "address": "diabetes_mellitus_in_pregnancy.html"
+      },
+      {
+        "id": 119,
+        "title": "Cardiac Disease in Pregnancy",
+        "address": "cardiac_disease_in_pregnancy.html"
+      },
+      {
+        "id": 120,
+        "title": "Jaundice in Pregnancy",
+        "address": "jaundice_in_pregnancy.html"
+      },
+      {
+        "id": 121,
+        "title": "Post-Partum Hemorrhage",
+        "address": "pph.html"
+      },
+      {
+        "id": 122,
+        "title": "Post-Partum Pyrexia",
+        "address": "ppp.html"
+      },
+      {
+        "id": 123,
+        "title": "Analgesia in Labour",
+        "address": "analgesia_in_labour.html"
+      },
+      {
+        "id": 124,
+        "title": "Preterm Labour in Premature Delivery",
+        "address": "preterm_labour_in_premature_delivery.html"
+      },
+      {
+        "id": 125,
+        "title": "Premature Rupture of Membranes",
+        "address": "prom.html"
+      }
+    ]
+  },
+  {
+    "chapter": 14,
+    "title": "Gynaecological Disorders",
+    "subitems": [
+      {
+        "id": 126,
+        "title": "Dysmenorrhoea",
+        "address": "dysmenorrhoea.html"
+      },
+      {
+        "id": 127,
+        "title": "Abortion",
+        "address": "abortion.html"
+      },
+      {
+        "id": 128,
+        "title": "Abnormal Vaginal Bleeding",
+        "address": "avb.html"
+      },
+      {
+        "id": 129,
+        "title": "Abnormal Vaginal Discharge",
+        "address": "avd.html"
+      },
+      {
+        "id": 130,
+        "title": "Acute Lower Abdminal Pain",
+        "address": "acute_lower_abdominal_pain.html"
+      },
+      {
+        "id": 131,
+        "title": "Female Infertility",
+        "address": "female_infertility.html"
+      },
+      {
+        "id": 132,
+        "title": "Menopause",
+        "address": "menopause.html"
+      },
+      {
+        "id": 133,
+        "title": "Carcinoma of the Cervix",
+        "address": "cervical_cancer.html"
+      }
+    ]
+  },
+  {
+    "chapter": 15,
+    "title": "Disorders of the Kidney and Genitourinary System",
+    "subitems": [
+      {
+        "id": 134,
+        "title": "Acute Glomerulonephritis",
+        "address": "acute_glomerulonephritis.html"
+      },
+      {
+        "id": 135,
+        "title": "Nephrotic Sydrome",
+        "address": "nephrotic_syndrome.html"
+      },
+      {
+        "id": 136,
+        "title": "Acute Kidney Injury",
+        "address": "acute_kidney_injury.html"
+      },
+      {
+        "id": 137,
+        "title": "Chronic Kidney Disease",	
+        "address": "chronic_kidney_disease.html"
+      },
+      {
+        "id": 138,
+        "title": "Anaemia in Chronic Kidney Disease",
+        "address": "anaemia_in_chronic_kidney_disease.html"
+      },
+      {
+        "id": 139,
+        "title": "Urinary Tract Infection",
+        "address": "uti.html"
+      },
+      {
+        "id": 140,
+        "title": "Medicines and the Kidney",
+        "address": "medicines_and_the_kidney.html"
+      },
+      {
+        "id": 141,
+        "title": "Acute Cystitis",
+        "address": "acute_cystitis.html"
+      },
+      {
+        "id": 142,
+        "title": "Benign Prostatic Hyperplasia",
+        "address": "benign_prostatic_hyperplasia.html"
+      },
+      {
+        "id": 143,
+        "title": "Bacterial Prostatitis",
+        "address": "bacterial_prostatitis.html"
+      },
+      {
+        "id": 144,
+        "title": "Scrotal Masses",
+        "address": "Scrotal_masses.html"
+      }
+      ,
+      {
+        "id": 145,
+        "title": "The Empty Scrotum",
+        "address": "the_empty_scrotum.html"
+      },
+      {
+        "id": 146,
+        "title": "Priapism",
+        "address": "priapism.html"
+      },
+      {
+        "id": 147,
+        "title": "Posterior Urethral Valve",
+        "address": "posterior_urethral_valve.html"
+      },
+      {
+        "id": 148,
+        "title": "Urinary Tract Calculi",
+        "address": "urinary_tract_calculi.html"
+      },
+      {
+        "id": 149,
+        "title": "Urethral Stricture",
+        "address": "urethral_stricture.html"
+      },
+      {
+        "id": 150,
+        "title": "Vasectomy(Male Sterilisation)",
+        "address": "vasectomy.html"
+      },
+      {
+        "id": 151,
+        "title": "Acute Epididymo-orchitis",
+        "address": "acute_epididymoorchitis.html"
+      },
+      {
+        "id": 152,
+        "title": "Testicular Torsion(Torsion of the Spermatic Cord)",
+        "address": "testicular_torsion.html"
+      },
+      {
+        "id": 153,
+        "title": "Fournier's Gangrene",
+        "address": "fourniers_gangrene.html"
+      },
+      {
+        "id": 154,
+        "title": "Bladder Cancer",
+        "address": "bladder_cancer.html"
+      },
+      {
+        "id": 155,
+        "title": "Carcinoma of the Prostate",
+        "address": "prostate_cancer.html"
+      },
+      {
+        "id": 156,
+        "title": "Erectile Dysfunction",
+        "address": "erectile_dysfunction.html"
+      },
+      {
+        "id": 157,
+        "title": "Male Infertility",
+        "address": "male_infertility.html"
+      },
+      {
+        "id": 158,
+        "title": "Haematuria",
+        "address": "haematuria.html"
+      },
+      {
+        "id": 159,
+        "title": "Urinary Schistosomiasis",
+        "address": "urinary_schistosomiasis.html"
+      },
+      {
+        "id": 160,
+        "title": "Persistent or Recurrent Urethral Discharge",
+        "address": "recurrent_urethral_discharge.html"
+      },
+      {
+        "id": 161,
+        "title": "Retention of Urine",
+        "address": "urine_retention.html"
+      }
+    ]
+  },
+  {
+    "chapter": 16,
+    "title": "Sexually Transmitted Infections",
+    "subitems": [
+      {
+        "id": 162,
+        "title": "Sexually Transmitted Infections in Adults",
+        "address": "sti_in_adults.html"
+      },
+      {
+        "id": 163,
+        "title": "STI-related Urethral Discharge in Males",
+        "address": "sti_related_urethral_discharge_in_males.html"
+      },
+      {
+        "id": 164,
+        "title": "Mycoplasma genitalum",
+        "address": "mycoplasma_genitalum.html"
+      },
+      {
+        "id": 165,
+        "title": "STI-related Persistent or Recurrent Urethral Discharge",
+        "address": "sti_related_recurrent_urethral_discharge.html"
+      },
+      {
+        "id": 166,
+        "title": "STI-related Vaginal Discharge",
+        "address": "sti_related_vaginal_discharge.html"
+      }
+      ,
+      {
+        "id": 167,
+        "title": "STI-related Lower Abdominal Pain in Women",
+        "address": "sti_related_lower_abdominal_pain_in_women.html"
+      },
+      {
+        "id": 168,
+        "title": "STI-related Genital Ulcer",
+        "address": "sti_related_genital_ulcer.html"
+      },
+      {
+        "id": 169,
+        "title": "STI-related Scrotal Swelling",
+        "address": "sti_related_scrotal_swelling.html"
+      },
+      {
+        "id": 170,
+        "title": "STI-related Inguinal Bubo ",
+        "address": "sti_related_inguinal_bubo.html"
+      },
+      {
+        "id": 171,
+        "title": "STI-related Genital Warts ",
+        "address": "sti_related_genital_warts.html"
+      },
+      {
+        "id": 172,
+        "title": "STI-related Ano-rectal Related Syndromes",
+        "address": "sti_related_anorectal_related_syndromes.html"
+      },
+      {
+        "id": 173,
+        "title": "Sexually Transmitted Infections in Children",
+        "address": "sexually_transmitted_infections_in_children.html"
+      },
+      {
+        "id": 174,
+        "title": "STI-related Neonatal Conjunctivitis (0pthalmia Neonatorum)",
+        "address": "sti_related_neonatal_conjunctivitis.html"
+      },
+      {
+        "id": 175,
+        "title": "STI-related Urethral Discharge Syndrome in Children",
+        "address": "sti_related_urethral_discharge_syndrome_in_children.html"
+      },
+      {
+        "id": 176,
+        "title": "STI-related Vaginal Discharge Syndromes in Children",
+        "address": "sti_related_vaginal_discharge_syndromes_in_children.html"
+      },
+     
+      {
+        "id": 177,
+        "title": "STI-related Lower Abdominal Pain or Pelvic Inflammatory Disease Syndrome in Children",
+        "address": "pid_in_children.html"
+      },
+      {
+        "id": 178,
+        "title": "STI-related Genital Ulcer Syndrome in Children",
+        "address": "sti_related_genital_ulcer_syndrome_in_children.html"
+      },
+      {
+        "id": 179,
+        "title": "STI-related Ano-Rectal Related Syndromes in Children",
+        "address": "sti_related_anorectal_related_syndromes_in_children.html"
+      },
+      {
+        "id": 180,
+        "title": "HIV Infection and AIDS",
+        "address": "hiv_infection_and_aids.html"
+      }
+    ]
+  },
+  {
+    "chapter": 17,
+    "title": "HIV Infection and AIDS",
+    "subitems": [
+      {
+        "id": 181,
+        "title": "HIV Post Exposure Prophylaxis (PEP) for exposed healthcare personel",
+        "address": "hiv_pep.html"
+      }
+    ]
+  },
+  {
+    "chapter": 18,
+    "title": "Infectious Diseases and Infestations",
+    "subitems": [
+      {
+        "id": 182,
+        "title": "Fever",
+        "address": "fever.html"
+      },
+      {
+        "id": 183,
+        "title": "Tuberculosis",
+        "address": "tuberculosis.html"
+      },
+       {
+        "id": 184,
+        "title": "Drug-Resistant Tuberculosis(DR-TB)",
+        "address": "drtb.html"
+      },
+       {
+        "id": 185,
+        "title": "Typhoid Fever",
+        "address": "typhoid_fever.html"
+      },
+       {
+        "id": 186,
+        "title": "Malaria",
+        "address": "malaria.html"
+      },
+       {
+        "id": 187,
+        "title": "Uncomplicated Malaria",
+        "address": "uncomplicated_malaria.html"
+      },
+       {
+        "id": 188,
+        "title": "Severe Malaria",
+        "address": "severe_malaria.html"
+      },
+       {
+        "id": 189,
+        "title": "Malaria in Pregnancy",
+        "address": "malaria_in_pregnancy.html"
+      },
+       {
+        "id": 190,
+        "title": "Seasonal Malaria Chemoprevention (SMC)",
+        "address": "smc.html"
+      },
+      {
+        "id": 191,
+        "title": "Meningitis",
+        "address": "meningitis.html"
+      },
+      {
+        "id": 192,
+        "title": "Worm Infestation (Intestinal)",
+        "address": "worm_infestation.html"
+      }
+    ]
+  },
+  {
+    "chapter": 19,
+    "title": "Eye Disorders",
+    "subitems": [
+      {
+        "id": 193,
+        "title": "Neonatal Conjunctivitis",
+        "address": "neonatal_conjunctivitis.html"
+      },
+      {
+        "id": 194,
+        "title": "Xerophthalmia",
+        "address": "xeropthalmia.html"
+      }
+      ,
+      {
+        "id": 195,
+        "title": "Foreign body in the eye",
+        "address": "foreign_body_in_the_eye.html"
+      }
+      ,
+      {
+        "id": 196,
+        "title": "Red Eye",
+        "address": "red_eye.html"
+      }
+      ,
+      {
+        "id": 197,
+        "title": "Glaucoma",
+        "address": "glaucoma.html"
+      }
+      ,
+      {
+        "id": 198,
+        "title": "Cataract",
+        "address": "cataract.html"
+      }
+      ,
+      {
+        "id": 199,
+        "title": "Exposure Keratopathy",
+        "address": "exposure_keratopathy.html"
+      }
+      ,
+      {
+        "id": 200,
+        "title": "Strabismus",
+        "address": "strabismus.html"
+      }
+      ,
+      {
+        "id": 201,
+        "title": "Sickle Cell Disease - Retinopathy",
+        "address": "scd_retinopathy.html"
+      }
+      ,
+      {
+        "id": 202,
+        "title": "Endocrine and metabolic disorders with eye complications",
+        "address": "endocrine_and_metabolic_disorders_plus_eye_complications.html"
+      }
+      
+    ]
+  },
+  {
+    "chapter": 20,
+    "title": "Ear, Nose, and Throat Disorders",
+    "subitems": [
+      {
+        "id": 203,
+        "title": "Stridor",
+        "address": "stridor.html"
+      },
+      {
+        "id": 204,
+        "title": "Acute Epiglottitis",
+        "address": "acute_epiglottitis.html"
+      }
+      ,
+      {
+        "id": 205,
+        "title": "Retropharyngeal Abscess",
+        "address": "retropharyngeal_abscess.html"
+      }
+      ,
+      {
+        "id": 206,
+        "title": "Pharyngitis and Tonsillitis",
+        "address": "pharyngitis_and_tonsillitis.html"
+      }
+      ,
+      {
+        "id": 207,
+        "title": "Acute Sinusitis",
+        "address": "acute_sinusitis.html"
+      }
+      ,
+      {
+        "id": 208,
+        "title": "Acute Otitis Media",
+        "address": "acute_otitis_media.html"
+      }
+      ,
+      {
+        "id": 209,
+        "title": "Chronic Otitis Media",
+        "address": "chronic_otitis_media.html"
+      },
+      {
+        "id": 210,
+        "title": "Epistaxis",
+        "address": "epistaxis.html"
+      }
+    ]
+  },
+  {
+    "chapter": 21,
+    "title": "Oral and Dental Condtions",
+    "subitems": [
+      {
+        "id": 211,
+        "title": "Dental Caries",
+        "address": "dental_caries.html"
+      },
+      {
+        "id": 212,
+        "title": "Oral Candidiasis",
+        "address": "oral_candidiasis.html"
+      }
+      ,
+      {
+        "id": 213,
+        "title": "Acute Necrotising Ulcerative Gingivitis",
+        "address": "anug.html"
+      }
+      ,
+      {
+        "id": 214,
+        "title": "Bacterial Endocarditis and Prophylaxis in Dentistry",
+        "address": "bepd.html"
+      }
+      ,
+      {
+        "id": 215,
+        "title": "Acute Bacterial Sialoadenitis",
+        "address": "acute_bacterial_sialoadenitis.html"
+      }
+      ,
+      {
+        "id": 216,
+        "title": "Ludwig's Angina/Cervico-Facial Abscess",
+        "address": "ludwigs_angina.html"
+      }
+      ,
+      {
+        "id": 217,
+        "title": "Chronic Periodontal Infections",
+        "address": "chronic_periodontal_infections.html"
+      }
+      ,
+      {
+        "id": 218,
+        "title": "Mouth Ulcers",
+        "address": "mouth_ulcers.html"
+      }
+      ,
+      {
+        "id": 219,
+        "title": "Odontogenic Infections",
+        "address": "odontogenic_infections.html"
+      }
+      ,
+      {
+        "id": 220,
+        "title": "Oral Squamous Cell Carcinoma",
+        "address": "oral_scc.html"
+      }
+      ,
+      {
+        "id": 221,
+        "title": "Temporo-mandibular Joint dysfunction and masticatory muscle dysfunction",
+        "address": "temporo_mandibular_joint_dysfunction.html"
+      }
+      ,
+      {
+        "id": 222,
+        "title": "Trigerminal Neuralgia",
+        "address": "trigerminal_neuralgia.html"
+      }
+      
+    ]
+  },
+  {
+    "chapter": 22,
+    "title": "Disorders of the Musculoskeletal System",
+    "subitems": [
+      {
+        "id": 223,
+        "title": "Osteoarthritis",
+        "address": "osteoarthritis.html"
+      },
+      {
+        "id": 224,
+        "title": "Rheumatoid arthritis",
+        "address": "rheumatoid_arthritis.html"
+      }
+      ,
+      {
+        "id": 225,
+        "title": "Juvenile Idiopathic Arthritis",
+        "address": "juvenile_idiopathic_arthritis.html"
+      }
+      ,
+      {
+        "id": 226,
+        "title": "Back pain",
+        "address": "back_pain.html"
+      }
+      ,
+      {
+        "id": 227,
+        "title": "Fibromyalgia",
+        "address": "fibromyalgia.html"
+      }
+      ,
+      {
+        "id": 228,
+        "title": "Idiopathic inflammatory myopathies",
+        "address": "idiopathic_inflammatory_myopathies.html"
+      }
+      ,
+      {
+        "id": 229,
+        "title": "Management of the Hot Swollen Joint",
+        "address": "management_of_swollen_joint.html"
+      }
+      ,
+      {
+        "id": 230,
+        "title": "Gout",
+        "address": "gout.html"
+      }
+      ,
+      {
+        "id": 231,
+        "title": "Pseudo-gout (chondrocalcinosis)",
+        "address": "pseudo_gout.html"
+      }
+      ,
+      {
+        "id": 232,
+        "title": "Systemic Lupus Erythematosus",
+        "address": "sle.html"
+      }
+      
+    ]
+  },
+  {
+    "chapter": 23,
+    "title": "Trauma and Injuries",
+    "subitems": [
+      {
+        "id": 233,
+        "title": "Head Injuries",
+        "address": "head_injuries.html"
+      },
+      {
+        "id": 234,
+        "title": "Acute Abdomen",
+        "address": "acute_abdomen.html"
+      }
+      ,
+      {
+        "id": 235,
+        "title": "Abdominal Trauma",
+        "address": "abdominal_trauma.html"
+      }
+      ,
+      {
+        "id": 236,
+        "title": "Closed Fractures",
+        "address": "closed_fractures.html"
+      }
+      ,
+      {
+        "id": 237,
+        "title": "Open Fractures",
+        "address": "open_fractures.html"
+      }
+      ,
+      {
+        "id": 238,
+        "title": "Dislocations",
+        "address": "dislocations.html"
+      }
+      ,
+      {
+        "id":239,
+        "title": "Acute orthopaedic infections",
+        "address": "acute_orthopaedic_infections.html"
+      }
+      ,
+      {
+        "id": 240,
+        "title": "Chronic Osteomyelitis and Chronic Septic Arthritis",
+        "address": "chronic_osteomyelitis_chronic_septic_arthritis.html"
+      }
+      ,
+      {
+        "id": 241,
+        "title": "Cellulitis",
+        "address": "cellulitis.html"
+      }
+      ,
+      {
+        "id": 242,
+        "title": "Necrotizing Fasciitis",
+        "address": "necrotizing_fasciitis.html"
+      }
+      ,
+      {
+        "id": 243,
+        "title": "Hand Infections",
+        "address": "hand_infections.html"
+      }
+      ,
+      {
+        "id": 244,
+        "title": "Tuberculosis in orthopaedics",
+        "address": "tuberculosis_in_orthopaedics.html"
+      }
+      ,
+      {
+        "id": 245,
+        "title": "Rickets and Osteomalacia",
+        "address": "rickets_and_osteomalacia.html"
+      }
+      ,
+      {
+        "id": 246,
+        "title": "Scurvy",
+        "address": "scurvy.html"
+      }
+      ,
+      {
+        "id": 247,
+        "title": "Osteoporosis",
+        "address": "osteoporosis.html"
+      }
+      ,
+      {
+        "id": 248,
+        "title": "Sickle-cell Vaso-occlusive Crisis",
+        "address": "sickle_cell_voc.html"
+      }
+      ,
+      {
+        "id": 249,
+        "title": "Avascular Necrosis",
+        "address": "avascular_necrosis.html"
+      }
+      ,
+      {
+        "id": 250,
+        "title": "Osteogenesis Imperfecta",
+        "address": "osteogenesis_imperfecta.html"
+      }
+      ,
+      {
+        "id": 251,
+        "title": "Burns",
+        "address": "burns.html"
+      }
+      ,
+      {
+        "id": 252,
+        "title": "Wounds",
+        "address": "wounds.html"
+      }
+      ,
+      {
+        "id": 253,
+        "title": "Bites and Stings",
+        "address": "bites_and_stings.html"
+      }
+      ,
+      {
+        "id": 254,
+        "title": "Shock",
+        "address": "shock.html"
+      }
+    ]
+  },
+  {
+    "chapter": 24,
+    "title": "General Emergencies",
+    "subitems": [
+      {
+        "id": 255,
+        "title": "Acute Allergic Reaction (Anaphylaxis)",
+        "address": "anaphylaxis.html"
+      }
+    ]
+  },
+  {
+    "chapter": 25,
+    "title": "Antibiotic Prophylaxis in Surgery",
+    "subitems": [
+      {
+        "id": 256,
+        "title": "Antibitic Prophylaxis in Surgery",
+        "address": "antibiotic_prophylaxis_in_surgery.html"
+      }
+    ]
+  },
+  {
+    "chapter": 26,
+    "title": "Management of Acute Pain",
+    "subitems": [
+      {
+        "id": 257,
+        "title": "Management of Acute Pain",
+        "address": "acute_pain_management.html"
+      }
+    ]
+  },
+  {
+    "chapter": 27,
+    "title": "Common Malignancies",
+    "subitems": [
+      {
+        "id": 258,
+        "title": "Breast Cancer",
+        "address": "breast_cancer.html"
+      },
+      {
+        "id": 259,
+        "title": "General Management of Poisoning",
+        "address": "general_management_of_poisoning.html"
+      }
+    ]
+  },
+  {
+    "chapter": 28,
+    "title": "General Management of Poisoning",
+    "subitems": [
+      {
+        "id": 260,
+        "title": "Medicines Use in the Elderly",
+        "address": "medicines_use_in_the_elderly.html"
+      }
+    ]
+  },
+  {
+    "chapter": 29,
+    "title": "Medicines Use in the Elderly",
+    "subitems": [
+      {
+        "id": 261,
+        "title": "Medicines Use in the Elderly",
+        "address": "medicines_use_in_the_elderly.html"
+      }
+    ]
+  },
+  {
+    "chapter": 30,
+    "title": "Local Anaesthetic Agents",
+    "subitems": [
+      {
+        "id": 262,
+        "title": "Local Anaesthetic Agents",
+        "address": "local_anaesthetics_agents.html"
+      }
+    ]
+  },
+  {
+    "chapter": 31,
+    "title": "Structured Approach to the Seriously Ill Child",
+    "subitems": [
+      {
+        "id": 263,
+        "title": "Structured Approach to the Seriously Ill Child",
+        "address": "structured_approach_to_illchild.html"
+      }
+    ]
+  },
+  {
+    "chapter": 32,
+    "title": "Coronavirus Disease",
+    "subitems": [
+      {
+        "id": 264,
+        "title": "Coronavirus Disease(COVID-19)",
+        "address": "coronovirus_disease.html"
+      }
+    ]
+  }
+]

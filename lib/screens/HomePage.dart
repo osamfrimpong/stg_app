@@ -3,13 +3,20 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:stg_app/models/Content.dart';
 import 'package:stg_app/models/SubItem.dart';
+import 'package:stg_app/screens/Details.dart';
 
 class HomePage extends StatelessWidget {
   final List<Content> items = List<Content>.generate(
       25,
-      (index) => Content(
-          title: "Disorders of the Gastrointestinal Tract",
-          subItems: [SubItem(title: "Diarrhoea", address: "index.html")]));
+      (index) =>
+          Content(title: "Disorders of the Gastrointestinal Tract", subItems: [
+            SubItem(title: "Preface", address: "preface.html"),
+            SubItem(title: "Stridor", address: "stridor.html"),
+            SubItem(title: "Preface", address: "preface.html"),
+            SubItem(title: "Stridor", address: "stridor.html"),
+            SubItem(title: "Preface", address: "preface.html"),
+            SubItem(title: "Stridor", address: "stridor.html"),
+          ]));
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,9 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.dashboard),
+            icon: Icon(AdaptiveTheme.of(context).mode == AdaptiveThemeMode.light
+                ? Icons.brightness_3
+                : Icons.wb_sunny),
             onPressed: () {
               AdaptiveTheme.of(context).toggleThemeMode();
             },
@@ -31,20 +40,27 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.all(10.0),
           itemCount: items.length,
           itemBuilder: (context, index) {
-            return _faqItem(items[index], index: index);
+            return _contentItem(items[index], index: index, context: context);
           }),
       drawer: Drawer(
-        child: ListView.builder(
-            padding: EdgeInsets.all(10.0),
-            itemCount: items.length,
+        child: ListView.separated(
             itemBuilder: (context, index) {
-              return _faqItem(items[index], index: index);
-            }),
+              return _newItem(
+                items[index],
+                index: index,
+                context: context,
+              );
+            },
+            separatorBuilder: (context, index) => Divider(
+                  height: 5.0,
+                  thickness: 1.0,
+                ),
+            itemCount: items.length),
       ),
     );
   }
 
-  Widget _faqItem(Content content, {int index}) {
+  Widget _contentItem(Content content, {int index, BuildContext context}) {
     return ExpandableNotifier(
       child: ScrollOnExpand(
         scrollOnExpand: true,
@@ -52,7 +68,6 @@ class HomePage extends StatelessWidget {
           child: ExpandablePanel(
             header: Padding(
               padding: const EdgeInsets.only(
-                left: 10.0,
                 top: 5.0,
                 bottom: 5.0,
               ),
@@ -64,23 +79,59 @@ class HomePage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                subtitle: Text(" ${content.title}"),
+                subtitle: Text("${content.title}"),
               ),
             ),
-            expanded: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: content.subItems
-                    .map((e) => Padding(
-                          padding: EdgeInsets.only(left: 16.0),
-                          child: Text(e.title),
-                        ))
-                    .toList(),
-              ),
-            ),
+            expanded: ListView.separated(
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(content.subItems[index].title),
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => Details(
+                                content: content,
+                                subItem: content.subItems[index],
+                              )));
+                    },
+                  );
+                },
+                separatorBuilder: (context, index) => Divider(
+                      height: 5.0,
+                      thickness: 1.0,
+                    ),
+                itemCount: content.subItems.length),
           ),
         ),
       ),
+    );
+  }
+
+  Widget _newItem(Content content, {int index, BuildContext context}) {
+    return ExpansionTile(
+      title: Text("Chapter ${index + 1}"),
+      subtitle: Text("${content.title}"),
+      children: [
+        ListView.separated(
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(content.subItems[index].title),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => Details(
+                            content: content,
+                            subItem: content.subItems[index],
+                          )));
+                },
+              );
+            },
+            separatorBuilder: (context, index) => Divider(
+                  height: 5.0,
+                  thickness: 1.0,
+                ),
+            itemCount: content.subItems.length)
+      ],
     );
   }
 }

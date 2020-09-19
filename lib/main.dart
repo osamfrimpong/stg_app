@@ -27,15 +27,15 @@ class MyApp extends StatelessWidget {
       ),
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
       light: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        accentColor: Colors.amber,
-      ),
+          brightness: Brightness.light,
+          primarySwatch: Colors.teal,
+          accentColor: Colors.tealAccent,
+          fontFamily: "Trebuc"),
       dark: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
-        accentColor: Colors.amber,
-      ),
+          brightness: Brightness.dark,
+          primarySwatch: Colors.blue,
+          accentColor: Colors.amber,
+          fontFamily: "Trebuc"),
     );
   }
 }

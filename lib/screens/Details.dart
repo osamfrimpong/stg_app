@@ -38,6 +38,13 @@ class _DetailsState extends State<Details> {
         title: Text(
           widget.subItem.title,
         ),
+        actions: [
+          IconButton(
+              icon: Icon(Icons.star),
+              onPressed: () {
+                _addFavourite(widget.subItem);
+              })
+        ],
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10.0),
@@ -61,4 +68,6 @@ class _DetailsState extends State<Details> {
         await rootBundle.loadString("assets/html/$address", cache: true);
     return rawData;
   }
+
+  void _addFavourite(SubItem subItem) {}
 }

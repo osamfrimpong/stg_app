@@ -3,6 +3,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:stg_app/models/Content.dart';
 import 'package:stg_app/models/SubItem.dart';
+import 'package:stg_app/screens/Data.dart';
 import 'package:stg_app/screens/Details.dart';
 
 class HomePage extends StatelessWidget {
@@ -88,11 +89,11 @@ class HomePage extends StatelessWidget {
                   return ListTile(
                     title: Text(content.subItems[index].title),
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Details(
-                                content: content,
-                                subItem: content.subItems[index],
-                              )));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Data(),
+                        ),
+                      );
                     },
                   );
                 },

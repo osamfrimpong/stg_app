@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,9 +15,11 @@ void main() async {
       await path_provider.getApplicationDocumentsDirectory();
   // debugPrint(applicationDocumentsDirectory.path);
   Hive.init(applicationDocumentsDirectory.path);
-  // final contentsBox = await Hive.openBox('contentsBox');
   Hive.registerAdapter(ContentAdapter());
   Hive.registerAdapter(SubItemAdapter());
+  await Hive.openBox<SubItem>('favouritesBox');
+  await Hive.openBox<Content>('contentsBox');
+  await Hive.openBox<SubItem>('entriesBox');
   runApp(MyApp(savedThemeMode: savedThemeMode));
 }
 
@@ -42,11 +42,11 @@ class MyApp extends StatelessWidget {
       light: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.teal,
-          accentColor: Colors.tealAccent,
+          accentColor: Colors.deepPurple,
           fontFamily: "Trebuc"),
       dark: ThemeData(
           brightness: Brightness.dark,
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepPurple,
           accentColor: Colors.amber,
           fontFamily: "Trebuc"),
     );

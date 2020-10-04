@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/form-validation.css">
+	<title>Questionnaire</title>
+</head>
+<body>
+<div class="container bg-black">
+  <div class="py-5 text-center">
+    
+    <h2>Questionnaire</h2>
+    <p class="lead">Epidemiological Profile of Acute Kidney Injury in the ICU: A retrospective study</p>
+  </div>
+
+  <div class="row">
+   
+    <div class="col-md-12 order-md-1">
+      <h4 class="mb-3">Demographic Data</h4>
+    <form class="needs-validation" novalidate method="POST" action="">
+       
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="firstName">Patient ID</label>
+            <input type="text" class="form-control" id="age" placeholder="Patient ID" name="patient_id" value="" required>
+            <div class="invalid-feedback">
+              Patient ID is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="firstName">Age</label>
+            <input type="number" class="form-control" id="age" placeholder="Age" name="age" value="" required>
+            <div class="invalid-feedback">
+              Age is required.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="lastName">Sex</label>
+            <select class="custom-select d-block w-100" id="sex" name="sex" required>
+              <option value="">Choose...</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid sex.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="mb-3 col-md-12">
+         <label for="lastName">Educational Status</label>
+            <select class="custom-select d-block w-100" id="education" name="education" required>
+              <option value="">Choose...</option>
+              <option value="basic">Basic</option>
+              <option value="secondary">Secondary</option>
+              <option value="tertiary">Tertiary</option>
+              <option value="none">None</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid Educational Status.
+            </div>
+          </div>
+        </div>
+
+        <h4 class="mb-3">Social Data</h4>
+        <hr class="mb-4">
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="occupation">Occupation</label>
+            <input type="text" class="form-control" id="occupation" placeholder="Occupation"name="occupation" value="" required>
+            <div class="invalid-feedback">
+              Occupation is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="smoke">Do you smoke?</label>
+            <select class="custom-select d-block w-100" id="smoke" name="smoke" required>
+              <option value="">Choose...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid smoking response.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="mb-3 col-md-12">
+         <label for="alcohol">Do you drink alcohol?</label>
+            <select class="custom-select d-block w-100" id="alcohol" name="alcohol" required>
+              <option value="">Choose...</option>
+              <option value="yes-o">Yes - Occasionally</option>
+              <option value="yes-r">Yes - Regularly</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid alcohol response.
+            </div>
+          </div>
+        </div>
+
+        <h4 class="mb-3">Medical Data</h4>
+        <hr class="mb-4">
+        <div class="row">
+        <div class="mb-3 col-md-6">
+         <label for="present_condition">Do you have any present medical condition?</label>
+            <select class="custom-select d-block w-100" id="present_condition" name="present_condition" required>
+              <option value="">Choose...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid present condition response.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="present_condition_yes">If Yes (please specify)</label>
+            <input type="text" class="form-control" id="present_condition_yes" placeholder="Present Condition(If Yes)"name="present_condition_yes" value="" required>
+            <div class="invalid-feedback">
+              Enter present condition.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="mb-3 col-md-6">
+         <label for="kidney_condition">Do you have any pre-existing kidney problem?</label>
+            <select class="custom-select d-block w-100" id="kidney_condition" name="kidney_condition" required>
+              <option value="">Choose...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid pre-existing kidney condition response.
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="kidney_condition_yes">If Yes (please specify)</label>
+            <input type="text" class="form-control" id="kidney_condition_yes" placeholder="Pre-existing Kidney Condition(If Yes)"name="kidney_condition_yes" value="" required>
+            <div class="invalid-feedback">
+              Enter pre-existing kidney condition.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="mb-3 col-md-6">
+         <label for="surgery">Have you undergone any surgical procedure before?</label>
+            <select class="custom-select d-block w-100" id="surgery" name="surgery" required>
+              <option value="">Choose...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid response for surgical procedure.
+            </div>
+          </div>
+
+           <div class="mb-3 col-md-6">
+         <label for="medication">Herbal Medication/NSAIDs use?</label>
+            <select class="custom-select d-block w-100" id="medication" name="medication" required>
+              <option value="">Choose...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid response for Herbal Medication/NSAIDs use.
+            </div>
+          </div>
+          
+        </div>
+
+        <h4 class="mb-3">Admission/Treatment Data</h4>
+        <hr class="mb-4">
+         <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="diagnosis">Admission Diagnosis</label>
+            <input type="text" class="form-control" id="diagnosis" placeholder="Diagnosis"name="diagnosis" value="" required>
+            <div class="invalid-feedback">
+              Admission Diagnosis is required.
+            </div>
+          </div>
+        <div class="col-md-6 mb-3">
+            <label for="duration">Admission Duration</label>
+            <input type="text" class="form-control" id="duration" placeholder="Duration"name="duration" value="" required>
+            <div class="invalid-feedback">
+              Admission Duration is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+        <div class="mb-3 col-md-12">
+         <label for="rrt">Recommended for Renal Replacement Therapy</label>
+            <select class="custom-select d-block w-100" id="rrt" name="rrt" required>
+              <option value="">Choose...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid response for Renal Replacement Therapy.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-6">
+         <label for="dialysis">Had Dialysis?</label>
+            <select class="custom-select d-block w-100" id="dialysis" name="dialysis" required>
+              <option value="">Choose...</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="nn">Not Known</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid response for Dialysis.
+            </div>
+          </div>
+          <div class="mb-3 col-md-6">
+         <label for="rrt">Outcome</label>
+            <select class="custom-select d-block w-100" id="outcome" name="outcome" required>
+              <option value="">Choose...</option>
+              <option value="discharged">Discharged</option>
+              <option value="died">Died</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid response for Outcome.
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-block" type="submit" name="submit">Submit Response</button>
+      </form>
+    </div>
+  </div>
+
+   <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer> 
+</div>
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/form-validation.js"></script>
+</body>
+</html>

@@ -11,35 +11,37 @@ import 'package:hive_flutter/hive_flutter.dart';
 class Data extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: Hive.openBox('contentsBox'),
-      builder: (context, snapshot) {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text("Data Screen"),
-          ),
-          body: Container(
-            color: Colors.white,
-            child: Center(
-              child: snapshot.hasData
-                  ? Column(
-                      children: [
-                        ValueListenableBuilder(
-                            valueListenable:
-                                Hive.box('contentsBox').listenable(),
-                            builder: (context, box, widget) {
-                              return Text(snapshot.data.length.toString());
-                            }),
-                        RaisedButton(onPressed: () {
-                          _loadContent().then((value) => addContents(value));
-                        })
-                      ],
-                    )
-                  : CircularProgressIndicator(),
+    return Scaffold(
+      body: FutureBuilder(
+        future: Hive.openBox('contentsBox'),
+        builder: (context, snapshot) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("Data Screen"),
             ),
-          ),
-        );
-      },
+            body: Container(
+              color: Colors.white,
+              child: Center(
+                child: snapshot.hasData
+                    ? Column(
+                        children: [
+                          ValueListenableBuilder(
+                              valueListenable:
+                                  Hive.box('contentsBox').listenable(),
+                              builder: (context, box, widget) {
+                                return Text(snapshot.data.length.toString());
+                              }),
+                          RaisedButton(onPressed: () {
+                            _loadContent().then((value) => addContents(value));
+                          })
+                        ],
+                      )
+                    : CircularProgressIndicator(),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 

@@ -54,6 +54,9 @@ flutter:
   assets:
    - assets/html/
    - assets/json/
+   - assets/hm/
+   - assets/hm/js/
+   - assets/hm/css/
   #   - images/a_dot_ham.jpeg
 
   fonts:

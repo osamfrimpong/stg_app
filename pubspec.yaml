@@ -21,15 +21,15 @@ dependencies:
   adaptive_theme: ^1.0.0
   share: ^0.6.5
   flutter_html: ^1.0.2
-  easy_web_view: ^1.3.0
+  # easy_web_view: ^1.3.0
   shared_preferences: ^0.5.10
   provider: ^4.3.2+2
   get: ^3.10.2
   sqflite: ^1.3.1+1
   expandable: ^4.1.4
-  curved_navigation_bar: ^0.3.4
+  # curved_navigation_bar: ^0.3.4
   path_provider: ^1.6.14
-  webview_flutter_plus: ^0.1.1+9
+  # webview_flutter_plus: ^0.1.1+9
   flutter_widget_from_html: ^0.5.0+3
   hive: ^1.4.4
   hive_flutter: ^0.3.1
@@ -54,9 +54,6 @@ flutter:
   assets:
    - assets/html/
    - assets/json/
-   - assets/hm/
-   - assets/hm/js/
-   - assets/hm/css/
   #   - images/a_dot_ham.jpeg
 
   fonts:

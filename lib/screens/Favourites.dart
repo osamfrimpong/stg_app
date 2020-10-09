@@ -1,34 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:stg_app/models/FavouriteItem.dart';
 import 'package:stg_app/models/SubItem.dart';
 import 'package:stg_app/screens/Details.dart';
+import 'package:stg_app/screens/provider_details.dart';
 
-const favoritesBox = 'favorite_books';
 
-class Favourites extends StatefulWidget {
-  @override
-  _FavouritesState createState() => _FavouritesState();
-}
 
-class _FavouritesState extends State<Favourites> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    // if (Hive.box<SubItem>('favouritesBox').isOpen) {
-    //   Hive.box<SubItem>('favouritesBox').compact();
-    //   Hive.box<SubItem>('favouritesBox').close();
-    // }
-  }
+class Favourites extends StatelessWidget {
 
   void onFavoritePress(int index) {
-    if (Hive.box<SubItem>('favouritesBox').containsKey(index)) {
-      Hive.box<SubItem>('favouritesBox').delete(index);
+    if (Hive.box<FavouriteItem>('favouritesBox').containsKey(index)) {
+      Hive.box<FavouriteItem>('favouritesBox').delete(index);
       return;
     }
   }
@@ -40,9 +24,11 @@ class _FavouritesState extends State<Favourites> {
           title: Text("Favourites"),
         ),
         body: ValueListenableBuilder(
-          valueListenable: Hive.box<SubItem>('favouritesBox').listenable(),
-          builder: (context, Box<SubItem> box, _) {
-            final favourites = box.values.toList().cast<SubItem>();
+          valueListenable:
+              Hive.box<FavouriteItem>('favouritesBox').listenable(),
+          builder: (context, Box<FavouriteItem> box, _) {
+            final favourites = box.values.toList().cast<FavouriteItem>();
+
             return box.isEmpty
                 ? Center(
                     child: Text("No Favourites!"),
@@ -61,8 +47,11 @@ class _FavouritesState extends State<Favourites> {
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => Details(
-                                subItem: favourites[listIndex],
+                              builder: (context) => ProviderDetails(
+                                subItem: SubItem(
+                                    id: favourites[listIndex].id,
+                                    title: favourites[listIndex].title,
+                                    address: favourites[listIndex].address),
                               ),
                             ),
                           );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stg_app/models/SubItem.dart';
-import 'package:stg_app/screens/Details.dart';
+import 'package:stg_app/screens/provider_details.dart';
 
 class CustomSearchDelegate extends SearchDelegate<SubItem> {
   final List<SubItem> searchItems;
@@ -53,7 +53,7 @@ class CustomSearchDelegate extends SearchDelegate<SubItem> {
             onTap: () {
               // Navigator.pop(context);
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => Details(
+                  builder: (context) => ProviderDetails(
                         subItem: suggestions[index],
                       )));
             },

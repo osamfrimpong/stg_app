@@ -7,6 +7,8 @@ import 'package:stg_app/models/SubItem.dart';
 import 'package:stg_app/screens/HomePage.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
+import 'models/FavouriteItem.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -17,7 +19,8 @@ void main() async {
   Hive.init(applicationDocumentsDirectory.path);
   Hive.registerAdapter(ContentAdapter());
   Hive.registerAdapter(SubItemAdapter());
-  await Hive.openBox<SubItem>('favouritesBox');
+  Hive.registerAdapter(FavouriteItemAdapter());
+  await Hive.openBox<FavouriteItem>('favouritesBox');
   await Hive.openBox<Content>('contentsBox');
   await Hive.openBox<SubItem>('entriesBox');
   runApp(MyApp(savedThemeMode: savedThemeMode));

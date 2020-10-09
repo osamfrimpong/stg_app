@@ -14,6 +14,7 @@ import 'package:stg_app/screens/About.dart';
 import 'package:stg_app/screens/Details.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stg_app/screens/Favourites.dart';
+import 'package:stg_app/screens/provider_details.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -160,7 +161,7 @@ class HomePage extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => Details(
+                          builder: (context) => ProviderDetails(
                             subItem: content.subItems[index],
                           ),
                         ),

@@ -1,62 +1,133 @@
+import 'dart:convert';
+
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hive/hive.dart';
+import 'package:share/share.dart';
+import 'package:stg_app/controllers/custom_search_delegate.dart';
 import 'package:stg_app/models/Content.dart';
 import 'package:stg_app/models/SubItem.dart';
+import 'package:stg_app/models/podo/ContentPODO.dart';
+import 'package:stg_app/screens/About.dart';
 import 'package:stg_app/screens/Details.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:stg_app/screens/Favourites.dart';
+import 'package:stg_app/screens/provider_details.dart';
 
 class HomePage extends StatelessWidget {
-  final List<Content> items = List<Content>.generate(
-      25,
-      (index) =>
-          Content(title: "Disorders of the Gastrointestinal Tract", subItems: [
-            SubItem(title: "Preface", address: "preface.html"),
-            SubItem(title: "Stridor", address: "stridor.html"),
-            SubItem(title: "Preface", address: "preface.html"),
-            SubItem(title: "Stridor", address: "stridor.html"),
-            SubItem(title: "Preface", address: "preface.html"),
-            SubItem(title: "Stridor", address: "stridor.html"),
-          ]));
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("STG"),
+        title: Text("STG 2017"),
         elevation: 0.0,
-        centerTitle: true,
         actions: [
+          ValueListenableBuilder(
+              valueListenable: Hive.box<SubItem>('entriesBox').listenable(),
+              builder: (context, Box<SubItem> box, _) {
+                final searchItems = box.values.toList().cast<SubItem>();
+                return IconButton(
+                  icon: Icon(Icons.search),
+                  onPressed: () {
+                    showSearch<SubItem>(
+                      context: context,
+                      delegate: CustomSearchDelegate(searchItems),
+                    );
+                  },
+                );
+              }),
+          IconButton(
+              icon: Icon(Icons.favorite),
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Favourites()));
+              }),
           IconButton(
             icon: Icon(AdaptiveTheme.of(context).mode == AdaptiveThemeMode.light
-                ? Icons.brightness_3
+                ? Icons.brightness_2
                 : Icons.wb_sunny),
             onPressed: () {
               AdaptiveTheme.of(context).toggleThemeMode();
             },
           ),
+          PopupMenuButton(
+            onSelected: (value) {
+              if (value == "about") {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => About()));
+              } else if (value == "share") {
+                Share.share("Get App from playstore");
+              }
+            },
+            itemBuilder: (BuildContext context) => [
+              PopupMenuItem(child: Text('About'), value: "about"),
+              PopupMenuItem(child: Text('Share'), value: "share"),
+            ],
+          )
         ],
       ),
-      body: ListView.builder(
-          padding: EdgeInsets.all(10.0),
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return _contentItem(items[index], index: index, context: context);
+      body: ValueListenableBuilder(
+          valueListenable: Hive.box<Content>('contentsBox').listenable(),
+          builder: (context, Box<Content> box, _) {
+            final contents = box.values.toList().cast<Content>();
+            return box.isEmpty
+                ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "No Content!",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20.0),
+                          ),
+                        ),
+                        Text(
+                          "Press Button to Load!",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 18.0),
+                        ),
+                        IconButton(
+                            icon: Icon(Icons.cloud_download),
+                            iconSize: 54.0,
+                            onPressed: () {
+                              _loadContent()
+                                  .then((value) => addContents(value));
+                            }),
+                      ],
+                    ),
+                  )
+                : ListView.builder(
+                    padding: EdgeInsets.all(10.0),
+                    itemCount: contents.length,
+                    itemBuilder: (context, index) {
+                      return _contentItem(contents[index],
+                          index: index, context: context);
+                    });
           }),
-      drawer: Drawer(
-        child: ListView.separated(
-            itemBuilder: (context, index) {
-              return _newItem(
-                items[index],
-                index: index,
-                context: context,
-              );
-            },
-            separatorBuilder: (context, index) => Divider(
-                  height: 5.0,
-                  thickness: 1.0,
-                ),
-            itemCount: items.length),
-      ),
+      drawer: ValueListenableBuilder(
+          valueListenable: Hive.box<Content>('contentsBox').listenable(),
+          builder: (context, Box<Content> box, _) {
+            final contents = box.values.toList().cast<Content>();
+            return Drawer(
+              child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return _newItem(
+                      contents[index],
+                      index: index,
+                      context: context,
+                    );
+                  },
+                  separatorBuilder: (context, index) => Divider(
+                        height: 5.0,
+                        thickness: 1.0,
+                      ),
+                  itemCount: contents.length),
+            );
+          }),
     );
   }
 
@@ -88,11 +159,13 @@ class HomePage extends StatelessWidget {
                   return ListTile(
                     title: Text(content.subItems[index].title),
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => Details(
-                                content: content,
-                                subItem: content.subItems[index],
-                              )));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => ProviderDetails(
+                            subItem: content.subItems[index],
+                          ),
+                        ),
+                      );
                     },
                   );
                 },
@@ -120,7 +193,6 @@ class HomePage extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => Details(
-                            content: content,
                             subItem: content.subItems[index],
                           )));
                 },
@@ -133,5 +205,38 @@ class HomePage extends StatelessWidget {
             itemCount: content.subItems.length)
       ],
     );
+  }
+
+  Future<List<ContentPODO>> _loadContent() async {
+    String rawData = await rootBundle
+        .loadString("assets/json/table_of_contents.json", cache: true);
+    final contentsJSON = jsonDecode(rawData) as List;
+    List<ContentPODO> contentsList =
+        contentsJSON.map((e) => ContentPODO.fromJson(e)).toList();
+    return contentsList;
+  }
+
+  void addContents(List<ContentPODO> contents) {
+    List<Content> contentList = contents
+        .map((content) => Content(
+            id: content.chapter,
+            title: content.title,
+            subItems: content.subItems
+                .map((item) => SubItem(
+                    id: item.id, title: item.title, address: item.address))
+                .toList()))
+        .toList();
+
+    final contentBox = Hive.box<Content>('contentsBox');
+    contentBox.clear().then((value) => contentBox
+        .addAll(contentList)
+        .then((value) => addEntries(contentList)));
+  }
+
+  void addEntries(List<Content> contents) {
+    final entriesBox = Hive.box<SubItem>('entriesBox');
+    contents.forEach((element) {
+      entriesBox.addAll(element.subItems);
+    });
   }
 }

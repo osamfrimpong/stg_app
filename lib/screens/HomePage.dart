@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:dio/dio.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:share/share.dart';
 import 'package:stg_app/controllers/custom_search_delegate.dart';
@@ -11,10 +13,12 @@ import 'package:stg_app/models/Content.dart';
 import 'package:stg_app/models/SubItem.dart';
 import 'package:stg_app/models/podo/ContentPODO.dart';
 import 'package:stg_app/screens/About.dart';
+import 'package:stg_app/screens/Data.dart';
 import 'package:stg_app/screens/Details.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stg_app/screens/Favourites.dart';
 import 'package:stg_app/screens/provider_details.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatelessWidget {
   @override
@@ -41,8 +45,8 @@ class HomePage extends StatelessWidget {
           IconButton(
               icon: Icon(Icons.favorite),
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Favourites()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Data()));
               }),
           IconButton(
             icon: Icon(AdaptiveTheme.of(context).mode == AdaptiveThemeMode.light
@@ -95,7 +99,10 @@ class HomePage extends StatelessWidget {
                             iconSize: 54.0,
                             onPressed: () {
                               _loadContent()
-                                  .then((value) => addContents(value));
+                                  .then((value) => addContents(value))
+                                  .then((value) {
+                                Get.to(Data());
+                              });
                             }),
                       ],
                     ),
@@ -208,12 +215,22 @@ class HomePage extends StatelessWidget {
   }
 
   Future<List<ContentPODO>> _loadContent() async {
-    String rawData = await rootBundle
-        .loadString("assets/json/table_of_contents.json", cache: true);
-    final contentsJSON = jsonDecode(rawData) as List;
-    List<ContentPODO> contentsList =
-        contentsJSON.map((e) => ContentPODO.fromJson(e)).toList();
-    return contentsList;
+    // String rawData = await rootBundle
+    //     .loadString("assets/json/table_of_contents.json", cache: true);
+    try {
+      // final Dio dio = Dio();
+      // Response response = await dio.get(
+      //     "https://osamfrimpong.github.io/stg_app_web/json/table_of_contents.json");
+      var response = await http.get(
+          "https://osamfrimpong.github.io/stg_app_web/json/table_of_contents.json");
+      print("Output data: ${response.body}");
+      final contentsJSON = jsonDecode(response.body.toString()) as List;
+      List<ContentPODO> contentsList =
+          contentsJSON.map((e) => ContentPODO.fromJson(e)).toList();
+      return contentsList;
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   void addContents(List<ContentPODO> contents) {

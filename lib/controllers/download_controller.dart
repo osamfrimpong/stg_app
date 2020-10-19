@@ -62,9 +62,8 @@ class DownloadController extends GetxController {
           address: element.address,
           content: response.data.toString());
       addToDb(htmlItem);
-      print("Response ${response.data.toString()}");
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
     }
   }
 }

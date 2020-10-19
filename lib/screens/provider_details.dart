@@ -72,7 +72,7 @@ class ProviderDetails extends StatelessWidget {
                     child: HtmlWidget(
                       htmlItem != null ? htmlItem.content : "<div></div>",
                       // buildAsync: true,
-                      enableCaching: true,
+                      // enableCaching: true,
                       customStylesBuilder: (element) {
                         if (element.localName == "table") {
                           return AdaptiveTheme.of(context).mode ==

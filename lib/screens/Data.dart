@@ -9,6 +9,9 @@ import 'package:stg_app/viewmodels/download_model.dart';
 
 class Data extends StatelessWidget {
   final DownloadController c = Get.put(DownloadController());
+  // Data() {
+  //   c.loadingContents.value = false;
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +57,12 @@ class Data extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                        onPressed: () => c.download(entries),
+                        onPressed: () {
+                          if (c.loadingContents.value == true)
+                            c.loadingContents.value = false;
+
+                          c.download(entries);
+                        },
                         child: Text("Download Data")),
                   ],
                 );
@@ -71,17 +79,4 @@ class MyText extends StatelessWidget {
     var downloadModel = Provider.of<DownloadModel>(context, listen: true);
     return Text(downloadModel.percent.toString());
   }
-
-  // void doDownload(List<SubItem> subItems) {
-  //   final int total = subItems.length;
-  //   int currentSize = 0;
-
-  //   subItems.forEach((element) {
-  //     Future.delayed(Duration(seconds: 5)).then((value) {
-  //       currentSize++;
-  //       // _percent =
-  //       // double.parse(((currentSize / total) * 100).toStringAsFixed(2));
-  //     });
-  //   });
-  // }
 }

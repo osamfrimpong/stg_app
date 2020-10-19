@@ -9,6 +9,7 @@ import 'package:stg_app/models/SubItem.dart';
 class DownloadController extends GetxController {
   var percent = 0.0.obs;
   var loadingHTMLItem = false.obs;
+  var loadingContents = false.obs;
   var item = "".obs;
   var index = 0.obs;
   final baseUrl = "https://osamfrimpong.github.io/stg_app_web/html/";

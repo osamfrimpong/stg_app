@@ -70,7 +70,7 @@ class ProviderDetails extends StatelessWidget {
                       SingleChildScrollView(
                     padding: EdgeInsets.all(10.0),
                     child: HtmlWidget(
-                      htmlItem.content,
+                      htmlItem != null ? htmlItem.content : "<div></div>",
                       // buildAsync: true,
                       enableCaching: true,
                       customStylesBuilder: (element) {

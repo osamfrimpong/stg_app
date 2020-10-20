@@ -1,16 +1,34 @@
-# stg_app
+**DIGITAL STG PROJECT**
 
-A new Flutter project.
+**PROBLEM**
 
-## Getting Started
+The ***Standard Treatment Guidelines 2017\*** is only available officially in a hardcopy, an online PDF flipper format. The only available PDF was compiled from screenshot/scanned images from the online version. This has resulted in several difficulties in the usage including
 
-This project is a starting point for a Flutter application.
+\1.   No bookmarks for easy navigation
 
-A few resources to get you started if this is your first Flutter project:
+\2.   Text not searchable
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ 
+
+**GOALS/AIMS**
+
+We hope to create a digitally friendly format of the STG including
+
+\1.   Mobile app
+
+\2.   Web app
+
+\3.   Desktop app
+
+\4.   PDF version
+
+\5.   DOCX version
+
+ 
+
+**IMPLEMENTATION**
+
+We want to convert the STG to make it easy for manipulation in various formats for easy accessibility and effective utilisation.
+
+ 

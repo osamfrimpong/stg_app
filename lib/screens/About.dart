@@ -1,20 +1,23 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:stg_app/components/theme_switch.dart';
 
 class About extends StatelessWidget {
   final List<String> contributors = [
     "Schandorf Osam-Frimpong ~ App Developer",
-    "Silas Agbesi ~ Contributor & Content Conversion",
+    "Silas Agbesi ~ Contributor",
     "Elinam Sosa Armstrong ~ Contributor",
     "Seshie Daniel ~ Contributor",
-    "Derrick Attigah Mawuli ~ Contributor"
+    "Abigail Naa Kai Anang ~ Contributor",
+    "Derrick Attigah Mawuli ~ Contributor",
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("About"),
+        actions: [themeSwitchButton(context)],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -22,10 +25,16 @@ class About extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            SizedBox(
-              height: 200.00,
-              child: Container(
-                color: Theme.of(context).primaryColor,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 200.00,
+                child: Center(
+                  child: Image.asset(
+                    "assets/images/coat_of_arms.png",
+                    fit: BoxFit.scaleDown,
+                  ),
+                ),
               ),
             ),
             Divider(),

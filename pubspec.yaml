@@ -47,10 +47,10 @@ flutter:
   uses-material-design: true
 
  
-  # assets:
+  assets:
   #  - assets/html/
   #  - assets/json/
-  #   - images/a_dot_ham.jpeg
+    - assets/images/coat_of_arms.png
 
   fonts:
     - family: Trebuc

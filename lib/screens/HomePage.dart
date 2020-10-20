@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:share/share.dart';
+import 'package:stg_app/components/theme_switch.dart';
 import 'package:stg_app/controllers/custom_search_delegate.dart';
 import 'package:stg_app/controllers/download_controller.dart';
 import 'package:stg_app/models/Content.dart';
@@ -13,7 +13,6 @@ import 'package:stg_app/models/SubItem.dart';
 import 'package:stg_app/models/podo/ContentPODO.dart';
 import 'package:stg_app/screens/About.dart';
 import 'package:stg_app/screens/Data.dart';
-import 'package:stg_app/screens/Details.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stg_app/screens/Favourites.dart';
 import 'package:stg_app/screens/provider_details.dart';
@@ -48,14 +47,7 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => Favourites()));
               }),
-          IconButton(
-            icon: Icon(AdaptiveTheme.of(context).mode == AdaptiveThemeMode.light
-                ? Icons.brightness_2
-                : Icons.wb_sunny),
-            onPressed: () {
-              AdaptiveTheme.of(context).toggleThemeMode();
-            },
-          ),
+          themeSwitchButton(context),
           PopupMenuButton(
             onSelected: (value) {
               if (value == "about") {
@@ -63,11 +55,14 @@ class HomePage extends StatelessWidget {
                     .push(MaterialPageRoute(builder: (context) => About()));
               } else if (value == "share") {
                 Share.share("Get App from playstore");
+              } else if (value == "update") {
+                Get.to(Data());
               }
             },
             itemBuilder: (BuildContext context) => [
               PopupMenuItem(child: Text('About'), value: "about"),
               PopupMenuItem(child: Text('Share'), value: "share"),
+              PopupMenuItem(child: Text('Update'), value: "update"),
             ],
           )
         ],
@@ -83,36 +78,43 @@ class HomePage extends StatelessWidget {
                   final contents = box.values.toList().cast<Content>();
                   return box.isEmpty
                       ? Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "No Content!",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
+                          child: Card(
+                            elevation: 2.0,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "No Content!",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20.0),
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                "Press Button to Load!",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18.0),
-                              ),
-                              IconButton(
-                                  icon: Icon(Icons.cloud_download),
-                                  iconSize: 54.0,
-                                  onPressed: () {
-                                    _loadContent()
-                                        .then((value) => addContents(value))
-                                        .then((value) {
-                                      // dc.loadingContents.value = false;
-                                      Get.to(Data());
-                                    });
-                                  }),
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Text(
+                                    "Press Button to Load! Ensure you have an active internet.",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 18.0),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                                IconButton(
+                                    icon: Icon(Icons.cloud_download),
+                                    iconSize: 54.0,
+                                    onPressed: () {
+                                      _loadContent()
+                                          .then((value) => addContents(value))
+                                          .then((value) {
+                                        // dc.loadingContents.value = false;
+                                        Get.to(Data());
+                                      });
+                                    }),
+                              ],
+                            ),
                           ),
                         )
                       : ListView.builder(
@@ -171,6 +173,7 @@ class HomePage extends StatelessWidget {
             ),
             expanded: ListView.separated(
                 shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(content.subItems[index].title),
@@ -203,12 +206,13 @@ class HomePage extends StatelessWidget {
       children: [
         ListView.separated(
             shrinkWrap: true,
+            physics: ClampingScrollPhysics(),
             itemBuilder: (context, index) {
               return ListTile(
                 title: Text(content.subItems[index].title),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => Details(
+                      builder: (context) => ProviderDetails(
                             subItem: content.subItems[index],
                           )));
                 },
@@ -228,7 +232,6 @@ class HomePage extends StatelessWidget {
     try {
       var response = await http.get(
           "https://osamfrimpong.github.io/stg_app_web/json/table_of_contents.json");
-      print("Output data: ${response.body}");
       final contentsJSON = jsonDecode(response.body.toString()) as List;
       List<ContentPODO> contentsList =
           contentsJSON.map((e) => ContentPODO.fromJson(e)).toList();

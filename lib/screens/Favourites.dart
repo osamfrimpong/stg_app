@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:stg_app/components/theme_switch.dart';
 import 'package:stg_app/models/FavouriteItem.dart';
 import 'package:stg_app/models/SubItem.dart';
-import 'package:stg_app/screens/Details.dart';
 import 'package:stg_app/screens/provider_details.dart';
 
-
-
 class Favourites extends StatelessWidget {
-
   void onFavoritePress(int index) {
     if (Hive.box<FavouriteItem>('favouritesBox').containsKey(index)) {
       Hive.box<FavouriteItem>('favouritesBox').delete(index);
@@ -22,6 +19,7 @@ class Favourites extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Favourites"),
+          actions: [themeSwitchButton(context)],
         ),
         body: ValueListenableBuilder(
           valueListenable:

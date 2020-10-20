@@ -10,6 +10,8 @@ class DownloadController extends GetxController {
   var percent = 0.0.obs;
   var loadingHTMLItem = false.obs;
   var loadingContents = false.obs;
+  var isSuccessful = "no".obs;
+  var contentLoadingState = "notStarted".obs;
   var item = "".obs;
   var index = 0.obs;
   final baseUrl = "https://osamfrimpong.github.io/stg_app_web/html/";
@@ -18,18 +20,17 @@ class DownloadController extends GetxController {
   download(List<SubItem> subItems) {
     var total = subItems.length - 1;
     var currentSize = 0;
-
-    // subItems.forEach((element) {
-    //   doDownload(element, currentSize, total);
-    // });
-
     Timer.periodic(Duration(milliseconds: 100), (timer) {
       currentSize += 1;
       index.value = currentSize;
       item.value = subItems[currentSize].title;
       dioJob(subItems[currentSize]);
       percent.value = ((currentSize / total) * 100);
-      if (currentSize == total) timer?.cancel();
+      if (currentSize == total) {
+        timer?.cancel();
+        loadingContents.value = false;
+        contentLoadingState.value = "done";
+      }
     });
   }
 
@@ -37,7 +38,7 @@ class DownloadController extends GetxController {
     currentSize += 1;
     index.value = currentSize;
     item.value = element.title;
-    print("Title: ${element.title} ID: ${element.id} Index:");
+    // print("Title: ${element.title} ID: ${element.id} Index:");
     percent.value = ((currentSize / total) * 100);
     dioJob(element);
   }
@@ -62,7 +63,9 @@ class DownloadController extends GetxController {
           address: element.address,
           content: response.data.toString());
       addToDb(htmlItem);
+      isSuccessful.value = "yes";
     } catch (e) {
+      if (loadingHTMLItem.value == true) loadingHTMLItem.value = false;
       // print(e.toString());
     }
   }

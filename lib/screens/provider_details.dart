@@ -4,10 +4,12 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
+import 'package:stg_app/components/theme_switch.dart';
 import 'package:stg_app/controllers/download_controller.dart';
 import 'package:stg_app/models/FavouriteItem.dart';
 import 'package:stg_app/models/HTML_item.dart';
 import 'package:stg_app/models/SubItem.dart';
+import 'package:stg_app/screens/update_detail.dart';
 import 'package:stg_app/viewmodels/favourites_model.dart';
 import 'package:stg_app/viewmodels/html_data_model.dart';
 
@@ -24,6 +26,7 @@ class ProviderDetails extends StatelessWidget {
           subItem.title,
         ),
         actions: [
+          themeSwitchButton(context),
           ChangeNotifierProvider<FavouritesModel>(
             create: (_) => FavouritesModel(subItem.id),
             child: Consumer<FavouritesModel>(
@@ -40,58 +43,104 @@ class ProviderDetails extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.download_rounded),
             onPressed: () {
-              c.loadingHTMLItem.value = true;
-              c.dioJob(subItem);
-              Get.off(ProviderDetails(
-                subItem: subItem,
-              ));
+              _doUpdate(subItem);
             },
           ),
           IconButton(
             icon: Icon(Icons.share),
             onPressed: () {
               Share.share(
-                  "Access ${subItem.title} from the STG App at https://osamfrimpong.github.io/stg_app_web/${subItem.address}");
+                  "Access ${subItem.title} from the STG App at https://osamfrimpong.github.io/stg_app_web/html/${subItem.address}");
             },
           )
         ],
       ),
-      body: Obx(
-        () => c.loadingHTMLItem.value == true
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : FutureProvider<HTMLItem>(
-                create: (_) => HTMLDataModel().loadHTML(subItem),
-                initialData:
-                    HTMLItem(address: subItem.address, content: '<div></div>'),
-                child: Consumer<HTMLItem>(
-                  builder: (context, HTMLItem htmlItem, child) =>
-                      SingleChildScrollView(
-                    padding: EdgeInsets.all(10.0),
-                    child: HtmlWidget(
-                      htmlItem != null ? htmlItem.content : "<div></div>",
-                      // buildAsync: true,
-                      // enableCaching: true,
-                      customStylesBuilder: (element) {
-                        if (element.localName == "table") {
-                          return AdaptiveTheme.of(context).mode ==
-                                  AdaptiveThemeMode.light
-                              ? {"border": "1px solid #00000"}
-                              : {"border": "1px solid #ffffff"};
-                        }
-
-                        if (element.localName == "td") {
-                          return {"padding": "5px"};
-                        }
-
-                        return null;
-                      },
+      body: FutureProvider<HTMLItem>(
+        create: (_) => HTMLDataModel().loadHTML(subItem),
+        initialData: HTMLItem(address: subItem.address, content: '<div></div>'),
+        child: Consumer<HTMLItem>(
+          builder: (context, HTMLItem htmlItem, child) => htmlItem == null
+              ? Center(
+                  child: Card(
+                    elevation: 2.0,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "${subItem.title} is not loaded!",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20.0),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            "Press Button to Load! Ensure you have and active internet",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 18.0),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        IconButton(
+                            icon: Icon(Icons.download_rounded),
+                            iconSize: 54.0,
+                            onPressed: () {
+                              _doUpdate(subItem);
+                            }),
+                      ],
                     ),
                   ),
+                )
+              : SingleChildScrollView(
+                  padding: EdgeInsets.all(10.0),
+                  child: HtmlWidget(
+                    htmlItem.content,
+                    // buildAsync: true,
+                    // enableCaching: true,
+                    customStylesBuilder: (element) {
+                      if (element.localName == "table") {
+                        return AdaptiveTheme.of(context).mode ==
+                                AdaptiveThemeMode.light
+                            ? {"border": "1px solid #00000"}
+                            : {"border": "1px solid #ffffff"};
+                      }
+
+                      if (element.localName == "td") {
+                        return {"padding": "5px"};
+                      }
+
+                      return null;
+                    },
+                  ),
                 ),
-              ),
+        ),
       ),
     );
+  }
+
+  void _doUpdate(SubItem subItem) {
+    Get.defaultDialog(
+        onConfirm: () {
+          c.loadingHTMLItem.value = true;
+          Get.back();
+          Get.off(
+            UpdateDetail(
+              subItem: subItem,
+            ),
+          );
+        },
+        barrierDismissible: false,
+        title: "Update!",
+        middleText:
+            "Do you want to update ${subItem.title}? Ensure you have an active internet connection.",
+        textConfirm: "Update",
+        textCancel: "Cancel",
+        confirmTextColor:
+            AdaptiveTheme.of(Get.context).mode == AdaptiveThemeMode.light
+                ? Colors.white
+                : Colors.black);
   }
 }

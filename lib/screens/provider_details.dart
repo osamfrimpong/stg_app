@@ -61,37 +61,34 @@ class ProviderDetails extends StatelessWidget {
         child: Consumer<HTMLItem>(
           builder: (context, HTMLItem htmlItem, child) => htmlItem == null
               ? Center(
-                  child: Card(
-                    elevation: 2.0,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "${subItem.title} is not loaded!",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20.0),
-                          ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "${subItem.title} is not loaded!",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20.0),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Text(
-                            "Press Button to Load! Ensure you have and active internet",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 18.0),
-                            textAlign: TextAlign.center,
-                          ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          "Press Button to Load! Ensure you have and active internet",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 18.0),
+                          textAlign: TextAlign.center,
                         ),
-                        IconButton(
-                            icon: Icon(Icons.download_rounded),
-                            iconSize: 54.0,
-                            onPressed: () {
-                              _doUpdate(subItem);
-                            }),
-                      ],
-                    ),
+                      ),
+                      IconButton(
+                          icon: Icon(Icons.download_rounded),
+                          iconSize: 54.0,
+                          onPressed: () {
+                            _doUpdate(subItem);
+                          }),
+                    ],
                   ),
                 )
               : SingleChildScrollView(

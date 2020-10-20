@@ -16,88 +16,83 @@ class Data extends StatelessWidget {
     if (c.loadingContents.value == true) c.loadingContents.value = false;
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Downloader"),
-          actions: [themeSwitchButton(context)],
-        ),
-        body: Card(
-          elevation: 2.0,
-          child: Obx(
-            () {
-              String _stateText = c.contentLoadingState.value == "notStarted"
-                  ? "Download App data. Ensure You have an active internet."
-                  : "Oops! There was an error downloading";
-              String _resultText = c.contentLoadingState.value == "done"
-                  ? "Download Complete!"
-                  : _stateText;
-              String _buttonText = c.contentLoadingState.value == "notStarted"
-                  ? "Download Data!"
-                  : "Retry Download";
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        c.loadingContents.value == true
-                            ? "Downloading ${c.item} ${c.percent.toStringAsFixed(2)}%"
-                            : _resultText,
-                        style: Theme.of(context).textTheme.bodyText1,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+      appBar: AppBar(
+        title: Text("Downloader"),
+        actions: [themeSwitchButton(context)],
+      ),
+      body: Obx(
+        () {
+          String _stateText = c.contentLoadingState.value == "notStarted"
+              ? "Download App data. Ensure You have an active internet."
+              : "Oops! There was an error downloading";
+          String _resultText = c.contentLoadingState.value == "done"
+              ? "Download Complete!"
+              : _stateText;
+          String _buttonText = c.contentLoadingState.value == "notStarted"
+              ? "Download Data!"
+              : "Retry Download";
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    c.loadingContents.value == true
+                        ? "Downloading ${c.item} ${c.percent.toStringAsFixed(2)}%"
+                        : _resultText,
+                    style: Theme.of(context).textTheme.bodyText1,
+                    textAlign: TextAlign.center,
                   ),
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: LinearProgressIndicator(
-                        value: c.percent.value / 100,
-                        minHeight: 20.0,
-                      ),
-                    ),
+                ),
+              ),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: LinearProgressIndicator(
+                    value: c.percent.value / 100,
+                    minHeight: 20.0,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Divider(),
-                  ),
-                  ValueListenableBuilder(
-                      valueListenable:
-                          Hive.box<SubItem>('entriesBox').listenable(),
-                      builder: (context, box, widget) {
-                        var entries = box.values.toList().cast<SubItem>();
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Divider(),
+              ),
+              ValueListenableBuilder(
+                  valueListenable: Hive.box<SubItem>('entriesBox').listenable(),
+                  builder: (context, box, widget) {
+                    var entries = box.values.toList().cast<SubItem>();
 
-                        return c.loadingContents.value == true
-                            ? Container()
-                            : ElevatedButton(
-                                onPressed: () {
-                                  if (c.contentLoadingState.value == "done") {
-                                    //done go back to home
-                                    Get.off(HomePage());
-                                  } else {
-                                    c.loadingHTMLItem.value = true;
-                                    _doUpdate(entries);
-                                  }
-                                },
-                                child: Text(
-                                    c.contentLoadingState.value == "done"
-                                        ? "Go back!"
-                                        : _buttonText));
-                      }),
-                ],
-              );
-            },
-          ),
-        ));
+                    return c.loadingContents.value == true
+                        ? Container()
+                        : ElevatedButton(
+                            onPressed: () {
+                              if (c.contentLoadingState.value == "done") {
+                                //done go back to home
+                                Get.off(HomePage());
+                              } else {
+                                c.loadingHTMLItem.value = true;
+                                _doUpdate(entries);
+                              }
+                            },
+                            child: Text(c.contentLoadingState.value == "done"
+                                ? "Go back!"
+                                : _buttonText));
+                  }),
+            ],
+          );
+        },
+      ),
+    );
   }
 
   void _doUpdate(List<SubItem> subItems) {
     Get.defaultDialog(
         onConfirm: () {
           Get.back();
-
-          // c.download(subItems);
+          c.download(subItems);
         },
         barrierDismissible: false,
         title: "Download Data!",

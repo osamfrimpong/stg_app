@@ -78,43 +78,40 @@ class HomePage extends StatelessWidget {
                   final contents = box.values.toList().cast<Content>();
                   return box.isEmpty
                       ? Center(
-                          child: Card(
-                            elevation: 2.0,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "No Content!",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                  ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "No Content!",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.0),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "Press Button to Load! Ensure you have an active internet.",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18.0),
-                                    textAlign: TextAlign.center,
-                                  ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  "Press Button to Load! Ensure you have an active internet.",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18.0),
+                                  textAlign: TextAlign.center,
                                 ),
-                                IconButton(
-                                    icon: Icon(Icons.cloud_download),
-                                    iconSize: 54.0,
-                                    onPressed: () {
-                                      _loadContent()
-                                          .then((value) => addContents(value))
-                                          .then((value) {
-                                        // dc.loadingContents.value = false;
-                                        Get.to(Data());
-                                      });
-                                    }),
-                              ],
-                            ),
+                              ),
+                              IconButton(
+                                  icon: Icon(Icons.cloud_download),
+                                  iconSize: 54.0,
+                                  onPressed: () {
+                                    _loadContent()
+                                        .then((value) => addContents(value))
+                                        .then((value) {
+                                      // dc.loadingContents.value = false;
+                                      Get.to(Data());
+                                    });
+                                  }),
+                            ],
                           ),
                         )
                       : ListView.builder(

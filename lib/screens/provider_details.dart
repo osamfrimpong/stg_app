@@ -71,6 +71,7 @@ class ProviderDetails extends StatelessWidget {
                           "${subItem.title} is not loaded!",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20.0),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       Padding(

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -58,14 +59,20 @@ class HomePage extends StatelessWidget {
               } else if (value == "share") {
                 Share.share(
                     "Get STG Ghana App from playstore at https://play.google.com/store/apps/details?id=com.schandorf.stg_app");
-              } else if (value == "update") {
+              } else if (value == "update_conditions") {
                 Get.to(Data());
+              } else if (value == "update_table") {
+                _doContentUpdate();
               }
             },
             itemBuilder: (BuildContext context) => [
               PopupMenuItem(child: Text('About'), value: "about"),
               PopupMenuItem(child: Text('Share'), value: "share"),
-              PopupMenuItem(child: Text('Update'), value: "update"),
+              PopupMenuItem(
+                  child: Text('Update Table of Contents'),
+                  value: "update_table"),
+              PopupMenuItem(
+                  child: Text('Update Conditions'), value: "update_conditions"),
             ],
           )
         ],
@@ -218,5 +225,26 @@ class HomePage extends StatelessWidget {
     contents.forEach((element) {
       entriesBox.addAll(element.subItems);
     });
+  }
+
+  void _doContentUpdate() {
+    Get.defaultDialog(
+        onConfirm: () {
+          Get.back();
+          _loadContent().then((value) => addContents(value)).then((value) {
+            // dc.loadingContents.value = false;
+            Get.to(Data());
+          });
+        },
+        barrierDismissible: false,
+        title: "Update!",
+        middleText:
+            "Do you want to update Table of Contents? Ensure you have an active internet connection.",
+        textConfirm: "Update",
+        textCancel: "Cancel",
+        confirmTextColor:
+            AdaptiveTheme.of(Get.context).mode == AdaptiveThemeMode.light
+                ? Colors.white
+                : Colors.black);
   }
 }

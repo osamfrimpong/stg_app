@@ -13,7 +13,7 @@ import 'models/HTML_item.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final savedThemeMode = await AdaptiveTheme.getThemeMode();
   final applicationDocumentsDirectory =
       await path_provider.getApplicationDocumentsDirectory();

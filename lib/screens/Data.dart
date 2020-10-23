@@ -71,7 +71,7 @@ class Data extends StatelessWidget {
                             onPressed: () {
                               if (c.contentLoadingState.value == "done") {
                                 //done go back to home
-                                Get.off(HomePage());
+                                Get.offAll(HomePage());
                               } else {
                                 c.loadingHTMLItem.value = true;
                                 _doUpdate(entries);

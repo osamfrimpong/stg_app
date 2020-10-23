@@ -4,6 +4,7 @@ import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
+import 'package:stg_app/components/navigation_drawer.dart';
 import 'package:stg_app/components/theme_switch.dart';
 import 'package:stg_app/controllers/download_controller.dart';
 import 'package:stg_app/models/FavouriteItem.dart';
@@ -14,6 +15,7 @@ import 'package:stg_app/viewmodels/favourites_model.dart';
 import 'package:stg_app/viewmodels/html_data_model.dart';
 
 class ProviderDetails extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
   final SubItem subItem;
   final DownloadController c = Get.put(DownloadController());
   ProviderDetails({Key key, this.subItem}) : super(key: key);
@@ -21,9 +23,16 @@ class ProviderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _globalKey,
       appBar: AppBar(
         title: Text(
           subItem.title,
+        ),
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: Icon(
+            Icons.arrow_back,
+          ),
         ),
         actions: [
           themeSwitchButton(context),
@@ -49,7 +58,9 @@ class ProviderDetails extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.menu),
-            onPressed: () {},
+            onPressed: () {
+              _globalKey.currentState.openDrawer();
+            },
           )
         ],
       ),
@@ -116,8 +127,9 @@ class ProviderDetails extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _doUpdate(subItem),
-        child: Icon(Icons.download_done_rounded),
+        child: Icon(Icons.download_rounded),
       ),
+      drawer: navigationDrawer,
     );
   }
 

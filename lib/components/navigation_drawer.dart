@@ -37,6 +37,7 @@ Widget _drawerItem(Content content, {int index, BuildContext context}) {
             return ListTile(
               title: Text(content.subItems[index].title),
               onTap: () {
+                Navigator.pop(context);
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => ProviderDetails(
                           subItem: content.subItems[index],

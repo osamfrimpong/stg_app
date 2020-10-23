@@ -54,7 +54,8 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (context) => About()));
               } else if (value == "share") {
-                Share.share("Get App from playstore");
+                Share.share(
+                    "Get STG Ghana App from playstore at https://play.google.com/store/apps/details?id=com.schandorf.stg_app");
               } else if (value == "update") {
                 Get.to(Data());
               }
@@ -123,26 +124,6 @@ class HomePage extends StatelessWidget {
                           });
                 }),
       ),
-      drawer: ValueListenableBuilder(
-          valueListenable: Hive.box<Content>('contentsBox').listenable(),
-          builder: (context, Box<Content> box, _) {
-            final contents = box.values.toList().cast<Content>();
-            return Drawer(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return _newItem(
-                      contents[index],
-                      index: index,
-                      context: context,
-                    );
-                  },
-                  separatorBuilder: (context, index) => Divider(
-                        height: 5.0,
-                        thickness: 1.0,
-                      ),
-                  itemCount: contents.length),
-            );
-          }),
     );
   }
 
@@ -196,42 +177,16 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _newItem(Content content, {int index, BuildContext context}) {
-    return ExpansionTile(
-      title: Text("Chapter ${index + 1}"),
-      subtitle: Text("${content.title}"),
-      children: [
-        ListView.separated(
-            shrinkWrap: true,
-            physics: ClampingScrollPhysics(),
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(content.subItems[index].title),
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProviderDetails(
-                            subItem: content.subItems[index],
-                          )));
-                },
-              );
-            },
-            separatorBuilder: (context, index) => Divider(
-                  height: 5.0,
-                  thickness: 1.0,
-                ),
-            itemCount: content.subItems.length)
-      ],
-    );
-  }
-
   Future<List<ContentPODO>> _loadContent() async {
     dc.loadingContents.value = true;
     try {
       var response = await http.get(
           "https://osamfrimpong.github.io/stg_app_web/json/table_of_contents.json");
       final contentsJSON = jsonDecode(response.body.toString()) as List;
-      List<ContentPODO> contentsList =
-          contentsJSON.map((e) => ContentPODO.fromJson(e)).toList();
+      List<ContentPODO> contentsList = contentsJSON.map((e) {
+        var contentPODO = ContentPODO.fromJson(e);
+        return contentPODO;
+      }).toList();
       return contentsList;
     } catch (e) {
       print(e.toString());

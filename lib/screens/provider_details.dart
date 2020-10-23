@@ -41,17 +41,15 @@ class ProviderDetails extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.download_rounded),
-            onPressed: () {
-              _doUpdate(subItem);
-            },
-          ),
-          IconButton(
             icon: Icon(Icons.share),
             onPressed: () {
               Share.share(
                   "Access ${subItem.title} from the STG App at https://osamfrimpong.github.io/stg_app_web/html/${subItem.address}");
             },
+          ),
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {},
           )
         ],
       ),
@@ -115,6 +113,10 @@ class ProviderDetails extends StatelessWidget {
                   ),
                 ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _doUpdate(subItem),
+        child: Icon(Icons.download_done_rounded),
       ),
     );
   }

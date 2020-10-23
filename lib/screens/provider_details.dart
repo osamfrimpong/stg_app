@@ -26,7 +26,7 @@ class ProviderDetails extends StatelessWidget {
       key: _globalKey,
       appBar: AppBar(
         title: Text(
-          subItem.title,
+          "STG",
         ),
         leading: IconButton(
           onPressed: () => Get.back(),
@@ -35,6 +35,10 @@ class ProviderDetails extends StatelessWidget {
           ),
         ),
         actions: [
+          IconButton(
+            icon: Icon(Icons.download_rounded),
+            onPressed: () => _doUpdate(subItem),
+          ),
           themeSwitchButton(context),
           ChangeNotifierProvider<FavouritesModel>(
             create: (_) => FavouritesModel(subItem.id),
@@ -101,33 +105,53 @@ class ProviderDetails extends StatelessWidget {
                     ],
                   ),
                 )
-              : SingleChildScrollView(
-                  padding: EdgeInsets.all(10.0),
-                  child: HtmlWidget(
-                    htmlItem.content,
-                    // buildAsync: true,
-                    // enableCaching: true,
-                    customStylesBuilder: (element) {
-                      if (element.localName == "table") {
-                        return AdaptiveTheme.of(context).mode ==
-                                AdaptiveThemeMode.light
-                            ? {"border": "1px solid #00000"}
-                            : {"border": "1px solid #ffffff"};
-                      }
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 10.0,
+                        top: 10.0,
+                        left: 10.0,
+                        right: 10.0,
+                      ),
+                      child: Text(
+                        subItem.title.toUpperCase(),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        padding: EdgeInsets.all(10.0),
+                        child: HtmlWidget(
+                          htmlItem.content,
+                          // buildAsync: true,
+                          // enableCaching: true,
+                          customStylesBuilder: (element) {
+                            if (element.localName == "table") {
+                              return AdaptiveTheme.of(context).mode ==
+                                      AdaptiveThemeMode.light
+                                  ? {"border": "1px solid #00000"}
+                                  : {"border": "1px solid #ffffff"};
+                            }
 
-                      if (element.localName == "td") {
-                        return {"padding": "5px"};
-                      }
+                            if (element.localName == "td") {
+                              return {"padding": "5px"};
+                            }
 
-                      return null;
-                    },
-                  ),
+                            return null;
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _doUpdate(subItem),
-        child: Icon(Icons.download_rounded),
       ),
       drawer: navigationDrawer,
     );

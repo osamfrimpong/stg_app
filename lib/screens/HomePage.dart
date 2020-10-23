@@ -24,7 +24,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("STG 2017"),
+        title: Text(
+          "STG Ghana 2017",
+        ),
         elevation: 0.0,
         actions: [
           ValueListenableBuilder(

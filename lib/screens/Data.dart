@@ -71,9 +71,10 @@ class Data extends StatelessWidget {
                             onPressed: () {
                               if (c.contentLoadingState.value == "done") {
                                 //done go back to home
+                                c.contentLoadingState.value = "notStarted";
                                 Get.offAll(HomePage());
                               } else {
-                                c.loadingHTMLItem.value = true;
+                                c.loadingContents.value = true;
                                 _doUpdate(entries);
                               }
                             },

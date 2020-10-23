@@ -47,15 +47,17 @@ class MyApp extends StatelessWidget {
       ),
       initial: savedThemeMode ?? AdaptiveThemeMode.light,
       light: ThemeData(
-          brightness: Brightness.light,
-          primarySwatch: Colors.teal,
-          accentColor: Colors.deepPurple,
-          fontFamily: "Trebuc"),
+        brightness: Brightness.light,
+        primarySwatch: Colors.teal,
+        accentColor: Colors.deepPurple,
+        fontFamily: "Trebuc",
+      ),
       dark: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.deepPurple,
-          accentColor: Colors.amber,
-          fontFamily: "Trebuc"),
+        brightness: Brightness.dark,
+        primarySwatch: Colors.deepPurple,
+        accentColor: Colors.amber,
+        fontFamily: "Trebuc",
+      ),
     );
   }
 }

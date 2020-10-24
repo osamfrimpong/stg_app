@@ -20,19 +20,22 @@ class HTMLItemAdapter extends TypeAdapter<HTMLItem> {
       id: fields[2] as int,
       address: fields[0] as String,
       content: fields[1] as String,
+      title: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, HTMLItem obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.address)
       ..writeByte(1)
       ..write(obj.content)
       ..writeByte(2)
-      ..write(obj.id);
+      ..write(obj.id)
+      ..writeByte(3)
+      ..write(obj.title);
   }
 
   @override

@@ -13,7 +13,7 @@ import 'models/HTML_item.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   final savedThemeMode = await AdaptiveTheme.getThemeMode();
   final applicationDocumentsDirectory =
       await path_provider.getApplicationDocumentsDirectory();
@@ -47,15 +47,17 @@ class MyApp extends StatelessWidget {
       ),
       initial: savedThemeMode ?? AdaptiveThemeMode.light,
       light: ThemeData(
-          brightness: Brightness.light,
-          primarySwatch: Colors.teal,
-          accentColor: Colors.deepPurple,
-          fontFamily: "Trebuc"),
+        brightness: Brightness.light,
+        primarySwatch: Colors.teal,
+        accentColor: Colors.deepPurple,
+        fontFamily: "Trebuc",
+      ),
       dark: ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.deepPurple,
-          accentColor: Colors.amber,
-          fontFamily: "Trebuc"),
+        brightness: Brightness.dark,
+        primarySwatch: Colors.deepPurple,
+        accentColor: Colors.amber,
+        fontFamily: "Trebuc",
+      ),
     );
   }
 }

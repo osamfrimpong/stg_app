@@ -61,7 +61,8 @@ class DownloadController extends GetxController {
       HTMLItem htmlItem = HTMLItem(
           id: element.id,
           address: element.address,
-          content: response.data.toString());
+          content: response.data.toString(),
+          title: element.title);
       addToDb(htmlItem);
       isSuccessful.value = "yes";
     } catch (e) {

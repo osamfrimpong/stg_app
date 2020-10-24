@@ -21,9 +21,7 @@ class UpdateDetail extends StatelessWidget {
       ),
       body: Container(
         child: Center(
-          child: Card(
-            elevation: 2.0,
-            child: Obx(
+          child: Obx(
               () {
                 String _resultText = dc.isSuccessful.value == "yes"
                     ? "Update Complete!"
@@ -64,7 +62,7 @@ class UpdateDetail extends StatelessWidget {
                 );
               },
             ),
-          ),
+          
         ),
       ),
     );

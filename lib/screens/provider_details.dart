@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 import 'package:stg_app/components/navigation_drawer.dart';
@@ -146,6 +147,34 @@ class ProviderDetails extends StatelessWidget {
 
                             return null;
                           },
+                          onTapUrl: (url) {
+                            loadDatabaseItemWithAddress(url)
+                                .then((htmlItem) => {
+                                      if (htmlItem == null)
+                                        {
+                                          Scaffold.of(context).showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                "Condition Not Added!",
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          )
+                                        }
+                                      else
+                                        {
+                                          Get.to(ProviderDetails(
+                                            subItem: SubItem(
+                                                title: htmlItem.title,
+                                                id: htmlItem.id,
+                                                address: htmlItem.address),
+                                          ))
+                                        }
+                                    });
+                          },
+                          textStyle: TextStyle(
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
                     ),
@@ -178,5 +207,10 @@ class ProviderDetails extends StatelessWidget {
             AdaptiveTheme.of(Get.context).mode == AdaptiveThemeMode.light
                 ? Colors.white
                 : Colors.black);
+  }
+
+  Future<HTMLItem> loadDatabaseItemWithAddress(String address) async {
+    final box = Hive.lazyBox<HTMLItem>('htmlItemBox');
+    return box.get(address);
   }
 }

@@ -56,6 +56,8 @@ class About extends StatelessWidget {
             _aboutText(contributors[3]),
             Divider(),
             _aboutText(contributors[4]),
+            Divider(),
+            _aboutText(contributors[5]),
           ],
         ),
       ),

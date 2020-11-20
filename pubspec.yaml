@@ -5,7 +5,7 @@ description: Standard Treatment Guidelines 2017.
 publish_to: 'none' 
 
 
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -30,6 +30,7 @@ dependencies:
   hive: ^1.4.4
   hive_flutter: ^0.3.1
   http: ^0.12.2
+  in_app_update: ^1.1.13
 
 
 dev_dependencies:

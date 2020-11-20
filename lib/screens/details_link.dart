@@ -11,17 +11,16 @@ import 'package:stg_app/controllers/download_controller.dart';
 import 'package:stg_app/models/FavouriteItem.dart';
 import 'package:stg_app/models/HTML_item.dart';
 import 'package:stg_app/models/SubItem.dart';
+import 'package:stg_app/screens/provider_details.dart';
 import 'package:stg_app/screens/update_detail.dart';
 import 'package:stg_app/viewmodels/favourites_model.dart';
 import 'package:stg_app/viewmodels/html_data_model.dart';
 
-import 'details_link.dart';
-
-class ProviderDetails extends StatelessWidget {
+class DetailsLink extends StatelessWidget {
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
   final SubItem subItem;
   final DownloadController c = Get.put(DownloadController());
-  ProviderDetails({Key key, this.subItem}) : super(key: key);
+  DetailsLink({Key key, this.subItem}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +165,7 @@ class ProviderDetails extends StatelessWidget {
                                         }
                                       else
                                         {
-                                          Get.to(DetailsLink(
+                                          Get.to(ProviderDetails(
                                             subItem: SubItem(
                                                 title: htmlItem.title,
                                                 id: htmlItem.id,

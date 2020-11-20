@@ -16,6 +16,7 @@ import 'package:stg_app/screens/About.dart';
 import 'package:stg_app/screens/Data.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stg_app/screens/Favourites.dart';
+import 'package:stg_app/screens/app_update.dart';
 import 'package:stg_app/screens/provider_details.dart';
 import 'package:http/http.dart' as http;
 
@@ -63,16 +64,18 @@ class HomePage extends StatelessWidget {
                 Get.to(Data());
               } else if (value == "update_table") {
                 _doContentUpdate();
+              } else if (value == "update_app") {
+                Get.to(UpdateApp());
               }
             },
             itemBuilder: (BuildContext context) => [
               PopupMenuItem(child: Text('About'), value: "about"),
               PopupMenuItem(child: Text('Share'), value: "share"),
               PopupMenuItem(
-                  child: Text('Update Table of Contents'),
-                  value: "update_table"),
+                  child: Text('Update Chapters'), value: "update_table"),
               PopupMenuItem(
                   child: Text('Update Conditions'), value: "update_conditions"),
+              PopupMenuItem(child: Text('Update App'), value: "update_app"),
             ],
           )
         ],

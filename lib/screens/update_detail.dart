@@ -9,7 +9,7 @@ class UpdateDetail extends StatelessWidget {
   final SubItem subItem;
   final DownloadController dc = Get.put(DownloadController());
 
-  UpdateDetail({Key key, this.subItem}) : super(key: key);
+  UpdateDetail({required this.subItem});
 
   @override
   Widget build(BuildContext context) {

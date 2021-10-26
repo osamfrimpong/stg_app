@@ -37,7 +37,7 @@ class CustomSearchDelegate extends SearchDelegate<SubItem> {
   @override
   Widget buildResults(BuildContext context) {
     // throw UnimplementedError();
-    return null;
+    return Container();
   }
 
   @override

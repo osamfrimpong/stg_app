@@ -1,10 +1,11 @@
 import 'dart:async';
 
-import 'package:dio/dio.dart';
+// import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:stg_app/models/HTML_item.dart';
 import 'package:stg_app/models/SubItem.dart';
+import 'package:http/http.dart' as http;
 
 class DownloadController extends GetxController {
   var percent = 0.0.obs;
@@ -15,7 +16,7 @@ class DownloadController extends GetxController {
   var item = "".obs;
   var index = 0.obs;
   final baseUrl = "https://osamfrimpong.github.io/stg_app_web/html/";
-  final Dio dio = Dio();
+  // final Dio dio = Dio();
 
   download(List<SubItem> subItems) {
     var total = subItems.length - 1;
@@ -27,7 +28,7 @@ class DownloadController extends GetxController {
       dioJob(subItems[currentSize]);
       percent.value = ((currentSize / total) * 100);
       if (currentSize == total) {
-        timer?.cancel();
+        timer.cancel();
         loadingContents.value = false;
         contentLoadingState.value = "done";
       }
@@ -57,13 +58,19 @@ class DownloadController extends GetxController {
 
   dioJob(SubItem element) async {
     try {
-      Response response = await dio.get('$baseUrl${element.address}');
-      HTMLItem htmlItem = HTMLItem(
-          id: element.id,
-          address: element.address,
-          content: response.data.toString(),
-          title: element.title);
-      addToDb(htmlItem);
+      http.Response response =
+          await http.get(Uri.parse('$baseUrl${element.address}'));
+
+      if (response.statusCode < 200 || response.statusCode > 400) {
+        //error or not found
+      } else {
+        HTMLItem htmlItem = HTMLItem(
+            id: element.id,
+            address: element.address,
+            content: response.body.toString(),
+            title: element.title);
+        addToDb(htmlItem);
+      }
       isSuccessful.value = "yes";
     } catch (e) {
       if (loadingHTMLItem.value == true) loadingHTMLItem.value = false;

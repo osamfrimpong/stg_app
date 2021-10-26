@@ -1,6 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:flutter_html/flutter_html.dart';
+
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +21,7 @@ class DetailsLink extends StatelessWidget {
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
   final SubItem subItem;
   final DownloadController c = Get.put(DownloadController());
-  DetailsLink({Key key, this.subItem}) : super(key: key);
+  DetailsLink({required this.subItem});
 
   @override
   Widget build(BuildContext context) {
@@ -65,14 +66,14 @@ class DetailsLink extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.menu),
             onPressed: () {
-              _globalKey.currentState.openDrawer();
+              _globalKey.currentState!.openDrawer();
             },
           )
         ],
       ),
-      body: FutureProvider<HTMLItem>(
+      body: FutureProvider<HTMLItem?>(
         create: (_) => HTMLDataModel().loadHTML(subItem),
-        initialData: HTMLItem(address: subItem.address, content: '<div></div>'),
+        initialData: HTMLItem(address: subItem.address, content: '<div></div>', title: "", id: 0),
         child: Consumer<HTMLItem>(
           builder: (context, HTMLItem htmlItem, child) => htmlItem == null
               ? Center(
@@ -130,54 +131,7 @@ class DetailsLink extends StatelessWidget {
                     Expanded(
                       child: SingleChildScrollView(
                         padding: EdgeInsets.all(10.0),
-                        child: HtmlWidget(
-                          htmlItem.content,
-                          // buildAsync: true,
-                          // enableCaching: true,
-                          customStylesBuilder: (element) {
-                            if (element.localName == "table") {
-                              return AdaptiveTheme.of(context).mode ==
-                                      AdaptiveThemeMode.light
-                                  ? {"border": "1px solid #00000"}
-                                  : {"border": "1px solid #ffffff"};
-                            }
-
-                            if (element.localName == "td") {
-                              return {"padding": "5px"};
-                            }
-
-                            return null;
-                          },
-                          onTapUrl: (url) {
-                            print(url);
-                            loadDatabaseItemWithAddress(url)
-                                .then((htmlItem) => {
-                                      if (htmlItem == null)
-                                        {
-                                          Scaffold.of(context).showSnackBar(
-                                            SnackBar(
-                                              content: Text(
-                                                "Condition Not Added!",
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ),
-                                          )
-                                        }
-                                      else
-                                        {
-                                          Get.to(ProviderDetails(
-                                            subItem: SubItem(
-                                                title: htmlItem.title,
-                                                id: htmlItem.id,
-                                                address: htmlItem.address),
-                                          ))
-                                        }
-                                    });
-                          },
-                          textStyle: TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
+                        child: Html(data: htmlItem.content),
                       ),
                     ),
                   ],
@@ -206,12 +160,12 @@ class DetailsLink extends StatelessWidget {
         textConfirm: "Update",
         textCancel: "Cancel",
         confirmTextColor:
-            AdaptiveTheme.of(Get.context).mode == AdaptiveThemeMode.light
+            AdaptiveTheme.of(Get.context!).mode == AdaptiveThemeMode.light
                 ? Colors.white
                 : Colors.black);
   }
 
-  Future<HTMLItem> loadDatabaseItemWithAddress(String address) {
+  Future<HTMLItem?> loadDatabaseItemWithAddress(String address) {
     final box = Hive.lazyBox<HTMLItem>('htmlItemBox');
     return box.get(address);
   }

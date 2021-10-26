@@ -15,5 +15,5 @@ class HTMLItem extends HiveObject {
   @HiveField(3)
   String title;
 
-  HTMLItem({this.address, this.content, this.id, this.title});
+  HTMLItem({required this.address, required this.content, required this.id, required this.title});
 }

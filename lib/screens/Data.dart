@@ -62,7 +62,7 @@ class Data extends StatelessWidget {
               ),
               ValueListenableBuilder(
                   valueListenable: Hive.box<SubItem>('entriesBox').listenable(),
-                  builder: (context, box, widget) {
+                  builder: (context, Box<SubItem> box, widget) {
                     var entries = box.values.toList().cast<SubItem>();
 
                     return c.loadingContents.value == true
@@ -102,7 +102,7 @@ class Data extends StatelessWidget {
         textConfirm: "Download",
         textCancel: "Cancel",
         confirmTextColor:
-            AdaptiveTheme.of(Get.context).mode == AdaptiveThemeMode.light
+            AdaptiveTheme.of(Get.context!).mode == AdaptiveThemeMode.light
                 ? Colors.white
                 : Colors.black);
   }

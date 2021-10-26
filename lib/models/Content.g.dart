@@ -19,7 +19,7 @@ class ContentAdapter extends TypeAdapter<Content> {
     return Content(
       id: fields[1] as int,
       title: fields[0] as String,
-      subItems: (fields[2] as List)?.cast<SubItem>(),
+      subItems: (fields[2] as List).cast<SubItem>(),
     );
   }
 

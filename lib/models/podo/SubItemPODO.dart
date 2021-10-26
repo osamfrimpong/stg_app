@@ -3,7 +3,7 @@ class SubItemPODO {
   String title;
   String address;
 
-  SubItemPODO({this.id, this.title, this.address});
+  SubItemPODO({required this.id, required this.title, required this.address});
 
   factory SubItemPODO.fromJson(dynamic json) {
     return SubItemPODO(

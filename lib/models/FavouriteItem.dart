@@ -8,5 +8,5 @@ class FavouriteItem extends HiveObject{
   String address;
   @HiveField(2)
   int id;
-  FavouriteItem({this.id, this.title, this.address});
+  FavouriteItem({required this.id, required this.title, required this.address});
 }

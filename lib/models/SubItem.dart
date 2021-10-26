@@ -8,5 +8,5 @@ class SubItem extends HiveObject{
   String address;
   @HiveField(2)
   int id;
-  SubItem({this.id, this.title, this.address});
+  SubItem({required this.id, required this.title, required this.address});
 }

@@ -16,7 +16,6 @@ import 'package:stg_app/screens/About.dart';
 import 'package:stg_app/screens/Data.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stg_app/screens/Favourites.dart';
-import 'package:stg_app/screens/app_update.dart';
 import 'package:stg_app/screens/provider_details.dart';
 import 'package:http/http.dart' as http;
 
@@ -65,7 +64,7 @@ class HomePage extends StatelessWidget {
               } else if (value == "update_table") {
                 _doContentUpdate();
               } else if (value == "update_app") {
-                Get.to(UpdateApp());
+                
               }
             },
             itemBuilder: (BuildContext context) => [
@@ -139,7 +138,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _contentItem(Content content, {int index, BuildContext context}) {
+  Widget _contentItem(Content content, {required int index, required BuildContext context}) {
     return ExpandableNotifier(
       child: ScrollOnExpand(
         scrollOnExpand: true,
@@ -182,7 +181,7 @@ class HomePage extends StatelessWidget {
                       height: 5.0,
                       thickness: 1.0,
                     ),
-                itemCount: content.subItems.length),
+                itemCount: content.subItems.length), collapsed: Container(),
           ),
         ),
       ),
@@ -193,7 +192,7 @@ class HomePage extends StatelessWidget {
     dc.loadingContents.value = true;
     try {
       var response = await http.get(
-          "https://osamfrimpong.github.io/stg_app_web/json/table_of_contents.json");
+          Uri.parse("https://osamfrimpong.github.io/stg_app_web/json/table_of_contents.json"));
       final contentsJSON = jsonDecode(response.body.toString()) as List;
       List<ContentPODO> contentsList = contentsJSON.map((e) {
         var contentPODO = ContentPODO.fromJson(e);
@@ -202,7 +201,7 @@ class HomePage extends StatelessWidget {
       return contentsList;
     } catch (e) {
       print(e.toString());
-      return List<ContentPODO>();
+      return <ContentPODO>[];
     }
   }
 
@@ -246,7 +245,7 @@ class HomePage extends StatelessWidget {
         textConfirm: "Update",
         textCancel: "Cancel",
         confirmTextColor:
-            AdaptiveTheme.of(Get.context).mode == AdaptiveThemeMode.light
+            AdaptiveTheme.of(Get.context!).mode == AdaptiveThemeMode.light
                 ? Colors.white
                 : Colors.black);
   }

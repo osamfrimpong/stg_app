@@ -25,7 +25,7 @@ Widget navigationDrawer = ValueListenableBuilder(
       );
     });
 
-Widget _drawerItem(Content content, {int index, BuildContext context}) {
+Widget _drawerItem(Content content, {required int index, required BuildContext context}) {
   return ExpansionTile(
     title: Text("Chapter ${index + 1}"),
     subtitle: Text("${content.title}"),

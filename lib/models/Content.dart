@@ -10,5 +10,5 @@ class Content extends HiveObject{
   int id;
   @HiveField(2)
   List<SubItem> subItems;
-  Content({this.id, this.title, this.subItems});
+  Content({required this.id, required this.title, required this.subItems});
 }

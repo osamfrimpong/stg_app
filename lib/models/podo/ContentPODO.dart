@@ -5,7 +5,7 @@ class ContentPODO {
   String title;
   List<SubItemPODO> subItems;
 
-  ContentPODO({this.chapter, this.title, this.subItems});
+  ContentPODO({required this.chapter, required this.title, required this.subItems});
 
   factory ContentPODO.fromJson(dynamic json) {
     var subItemsJSON = json['subitems'] as List;

@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
 import 'package:hive/hive.dart';
 import 'package:stg_app/models/Content.dart';
 import 'package:stg_app/models/SubItem.dart';
@@ -27,13 +28,13 @@ void main() async {
   await Hive.openBox<Content>('contentsBox');
   await Hive.openBox<SubItem>('entriesBox');
   await Hive.openLazyBox<HTMLItem>('htmlItemBox');
-  runApp(MyApp(savedThemeMode: savedThemeMode));
+  runApp(MyApp(savedThemeMode: savedThemeMode, key: null,));
 }
 
 class MyApp extends StatelessWidget {
-  final AdaptiveThemeMode savedThemeMode;
+  final AdaptiveThemeMode? savedThemeMode;
 
-  const MyApp({Key key, this.savedThemeMode}) : super(key: key);
+  const MyApp({ Key? key, this.savedThemeMode}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

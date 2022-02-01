@@ -73,7 +73,8 @@ class DetailsLink extends StatelessWidget {
       ),
       body: FutureProvider<HTMLItem?>(
         create: (_) => HTMLDataModel().loadHTML(subItem),
-        initialData: HTMLItem(address: subItem.address, content: '<div></div>', title: "", id: 0),
+        initialData: HTMLItem(
+            address: subItem.address, content: '<div></div>', title: "", id: 0),
         child: Consumer<HTMLItem>(
           builder: (context, HTMLItem htmlItem, child) => htmlItem == null
               ? Center(
@@ -131,7 +132,34 @@ class DetailsLink extends StatelessWidget {
                     Expanded(
                       child: SingleChildScrollView(
                         padding: EdgeInsets.all(10.0),
-                        child: Html(data: htmlItem.content),
+                        child: Html(
+                          data: htmlItem.content,
+                          onLinkTap: (url, _, __, ___) {
+                            loadDatabaseItemWithAddress(url!)
+                                .then((htmlItem) => {
+                                      if (htmlItem == null)
+                                        {
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                "Condition Not Added!",
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          )
+                                        }
+                                      else
+                                        {
+                                          Get.to(ProviderDetails(
+                                            subItem: SubItem(
+                                                title: htmlItem.title,
+                                                id: htmlItem.id,
+                                                address: htmlItem.address),
+                                          ))
+                                        }
+                                    });
+                          },
+                        ),
                       ),
                     ),
                   ],

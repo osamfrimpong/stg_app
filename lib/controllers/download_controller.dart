@@ -15,7 +15,7 @@ class DownloadController extends GetxController {
   var contentLoadingState = "notStarted".obs;
   var item = "".obs;
   var index = 0.obs;
-  final baseUrl = "https://osamfrimpong.github.io/stg_app_web/html/";
+  final baseUrl = "https://raw.githubusercontent.com/osamfrimpong/stg_app_web/main/html/";
   // final Dio dio = Dio();
 
   download(List<SubItem> subItems) {
@@ -63,6 +63,9 @@ class DownloadController extends GetxController {
 
       if (response.statusCode < 200 || response.statusCode > 400) {
         //error or not found
+        isSuccessful.value = "no";
+        if (loadingHTMLItem.value == true) loadingHTMLItem.value = false;
+
       } else {
         HTMLItem htmlItem = HTMLItem(
             id: element.id,
@@ -70,8 +73,11 @@ class DownloadController extends GetxController {
             content: response.body.toString(),
             title: element.title);
         addToDb(htmlItem);
+        isSuccessful.value = "yes";
+        if (loadingHTMLItem.value == true) loadingHTMLItem.value = false;
+
       }
-      isSuccessful.value = "yes";
+      
     } catch (e) {
       if (loadingHTMLItem.value == true) loadingHTMLItem.value = false;
       // print(e.toString());

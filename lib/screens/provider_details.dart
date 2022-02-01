@@ -73,9 +73,10 @@ class ProviderDetails extends StatelessWidget {
       ),
       body: FutureProvider<HTMLItem?>(
         create: (_) => HTMLDataModel().loadHTML(subItem),
-        initialData: HTMLItem(address: subItem.address, content: '<div></div>',title: "",id: 0),
-        child: Consumer<HTMLItem>(
-          builder: (context, HTMLItem htmlItem, child) => htmlItem == null
+        initialData: HTMLItem(
+            address: subItem.address, content: '<div></div>', title: "", id: 0),
+        child: Consumer<HTMLItem?>(
+          builder: (context, HTMLItem? htmlItem, child) => htmlItem == null
               ? Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -93,7 +94,7 @@ class ProviderDetails extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Text(
-                          "Press Button to Load! Ensure you have and active internet",
+                          "Press Button to Load! Ensure you have an active internet",
                           style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 18.0),
                           textAlign: TextAlign.center,
@@ -131,7 +132,35 @@ class ProviderDetails extends StatelessWidget {
                     Expanded(
                       child: SingleChildScrollView(
                         padding: EdgeInsets.all(10.0),
-                        child: Html(data: htmlItem.content),
+                        child: Html(
+                          data: htmlItem.content,
+                          onLinkTap: (url, _, __, ___) {
+                       
+                             loadDatabaseItemWithAddress(url!)
+                                .then((htmlItem) => {
+                                      if (htmlItem == null)
+                                        {
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                "Condition Not Added!",
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
+                                          )
+                                        }
+                                      else
+                                        {
+                                          Get.to(DetailsLink(
+                                            subItem: SubItem(
+                                                title: htmlItem.title,
+                                                id: htmlItem.id,
+                                                address: htmlItem.address),
+                                          ))
+                                        }
+                                    });
+                          },
+                        ),
                       ),
                     ),
                   ],

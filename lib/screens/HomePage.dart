@@ -63,9 +63,7 @@ class HomePage extends StatelessWidget {
                 Get.to(Data());
               } else if (value == "update_table") {
                 _doContentUpdate();
-              } else if (value == "update_app") {
-                
-              }
+              } else if (value == "update_app") {}
             },
             itemBuilder: (BuildContext context) => [
               PopupMenuItem(child: Text('About'), value: "about"),
@@ -138,7 +136,8 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _contentItem(Content content, {required int index, required BuildContext context}) {
+  Widget _contentItem(Content content,
+      {required int index, required BuildContext context}) {
     return ExpandableNotifier(
       child: ScrollOnExpand(
         scrollOnExpand: true,
@@ -181,7 +180,8 @@ class HomePage extends StatelessWidget {
                       height: 5.0,
                       thickness: 1.0,
                     ),
-                itemCount: content.subItems.length), collapsed: Container(),
+                itemCount: content.subItems.length),
+            collapsed: Container(),
           ),
         ),
       ),
@@ -191,8 +191,10 @@ class HomePage extends StatelessWidget {
   Future<List<ContentPODO>> _loadContent() async {
     dc.loadingContents.value = true;
     try {
-      var response = await http.get(
-          Uri.parse("https://osamfrimpong.github.io/stg_app_web/json/table_of_contents.json"));
+      var response = await http.get(Uri.parse(
+          "https://raw.githubusercontent.com/osamfrimpong/stg_app_web/main/json/table_of_contents.json"));
+
+      print(response.body.toString());
       final contentsJSON = jsonDecode(response.body.toString()) as List;
       List<ContentPODO> contentsList = contentsJSON.map((e) {
         var contentPODO = ContentPODO.fromJson(e);
